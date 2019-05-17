@@ -1,0 +1,9 @@
+.heading {
+    text-align: center;
+    margin-top: 20px;
+    border: solid;
+    border-width: 1px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 10px;
+}
