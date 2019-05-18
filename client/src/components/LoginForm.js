@@ -12,7 +12,7 @@ class LoginForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    alert("User: " + this.state.username + "    Pass: " + this.state.password);
+    
   };
 
   // handle any changes to the input fields

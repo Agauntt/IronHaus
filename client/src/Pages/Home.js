@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../IronHausLogo.png";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../Components/LoginForm";
 
 class Home extends React.Component {
   render() {

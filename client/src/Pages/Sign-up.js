@@ -2,8 +2,8 @@
 import React from "react";
 import logo from "../IronHausLogo.png";
 
-import FormUserDetails from "../components/FormUserDetails";
-import FormPersonalDetails from "../components/FormPersonalDetails";
+import FormUserDetails from "../Components/FormUserDetails";
+import FormPersonalDetails from "../Components/FormPersonalDetails";
 
 class SignUp extends React.Component {
   state = {
@@ -44,6 +44,25 @@ class SignUp extends React.Component {
     });
   };
 
+  // sets the gender state based on radio input
+  genderSelect = event => {
+    const { target } = event.target;
+    const { gender } = this.state;
+    console.log({ event });
+    }
+
+
+  // For now, this just logs the state for debugging
+  submit = () => {
+    alert("Logging state:  First: " + this.state.firstName +
+          "Last: " + this.state.lastName + 
+          "pass: " + this.state.password + 
+          "height" + this.state.height + 
+          "weight" + this.state.weight + 
+          "age: " + this.state.age +
+          "gender: " + this.state.gender);
+  }
+
   render() {
     const { step } = this.state;
     const {
@@ -76,22 +95,32 @@ class SignUp extends React.Component {
             <div className="heading">
               <img style={{ marginLeft: "10px" }} alt="IronHaus" src={logo} />
             </div>
-            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>Welcome</h3>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>First, lets set up your account</h3>
             <FormUserDetails
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               handleInputChange={this.handleInputChange}
               values={values}
+              
             />
           </div>
         );
       case 2:
         return (
-          <FormPersonalDetails
-            nextStep={this.nextStep}
-            handleInputChange={this.handleInputChange}
-            values={values}
-          />
+          <div>
+            <div className="heading">
+              <img style={{ marginLeft: "10px" }} alt="IronHaus" src={logo} />
+            </div>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>Now Tell us a little about yourself</h3>
+            <FormPersonalDetails
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleInputChange={this.handleInputChange}
+              values={values} 
+              genderSelect={this.genderSelect}
+              submit = {this.submit}
+              />
+          </div>
         );
       //   case 3:
       //     return (

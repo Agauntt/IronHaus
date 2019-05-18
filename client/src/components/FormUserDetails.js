@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Input, FormText } from "reactstrap";
 
 class FormUserDetails extends Component {
   continue = e => {
@@ -13,6 +13,7 @@ class FormUserDetails extends Component {
   };
 
   render() {
+    const { values, handleInputChange} = this.props;
     return (
       <div style={{ width: "50%" }} className="container">
         <Form style={{ textAlign: "center" }}>
@@ -23,6 +24,8 @@ class FormUserDetails extends Component {
             name="firstName"
             id="firstName"
             placeholder="first name"
+            onChange={handleInputChange}
+            defaultValue = {values.firstName}
           />
           <br />
           <Input
@@ -31,14 +34,18 @@ class FormUserDetails extends Component {
             name="lastName"
             id="lastName"
             placeholder="last name"
+            onChange={handleInputChange}
+            defaultValue = {values.lastName}
           />
           <br />
           <Input
             style={{ textAlign: "center" }}
-            type="email"
-            name="email"
-            id="email"
-            placeholder="email"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            onChange={handleInputChange}
+            defaultValue = {values.password}
           />
           <br />
           <Button onClick={this.back}>Back</Button> <Button onClick={this.continue}>Next</Button>
