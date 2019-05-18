@@ -1,9 +1,15 @@
 .heading {
-    text-align: center;
-    margin-top: 20px;
-    border: solid;
-    border-width: 1px;
-    margin-left: 25%;
-    margin-right: 25%;
-    border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
+  border: solid;
+  border-width: 3px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 10px;
+}
+
+.form-group {
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }

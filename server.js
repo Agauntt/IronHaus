@@ -16,12 +16,12 @@ if (process.env.NODE_ENV === "production") {
 }
 // Connect to mongoose
 mongoose
-    .connect(process.env.MONGODB_URI || "mongodb://localhost/IronHaus", { useNewUrlParser: true })
-    .then(() => console.log("MongoDB connected..."))
-    .catch(err => console.log(err));
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/IronHaus", { useNewUrlParser: true })
+  .then(() => console.log("MongoDB connected..."))
+  .catch(err => console.log(err));
 
 // Use Routes
-// app.use("/api/books", books);
+// app.use("/api/user", users);
 
 const PORT = process.env.PORT || 3001;
 
