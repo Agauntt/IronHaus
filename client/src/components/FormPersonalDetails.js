@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Button, Col, Form, FormGroup, Input, Row } from "reactstrap";
 
 export class FormPersonalDetails extends Component {
+  state = {
+    msg: ""
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -13,13 +17,33 @@ export class FormPersonalDetails extends Component {
   };
 
   submit = () => {
+    document.location.href= "/";
     this.props.submit();
   };
 
+  valueCheck = e => {
+    e.preventDefault();
+   const { values } = this.props;
+    const {id, value} = e.target;
+    let num = parseInt(value);
+    console.log(num);
+}
+
+  lengthCheck = e => {
+    const { values } = this.props 
+    if(values.goals.length > 20) {
+      this.setState({
+        msg: 'Please keep answer under 30 characters'
+      })
+    } 
+    this.props.handleInputChange(e);
+  }
+
+
   render() {
-    const { values, handleInputChange, genderSelect } = this.props;
+    const { values, handleInputChange } = this.props;
     return (
-      <div style={{ width: "60%"}} className="container">
+      <div style={{ width: "60%" }} className="container">
         <Form style={{ textAlign: "center" }}>
         <Row form style= {{ inputMargins }}>
           <Col md={4}>
@@ -45,24 +69,39 @@ export class FormPersonalDetails extends Component {
             </FormGroup>
           </Col>
         </Row>
-        <Row style={{ textAlign: "center"}}>
-        <FormGroup check >
+        <Row style={{ justifyContent: "center"}}>
+        <FormGroup check style={{marginRight: "70px"}}>
           <Input 
             type="radio" 
-            id="male"                 
+            id="gender"
+            value="male"                 
             name="gender"
-            onClick={genderSelect} />{' '}
+            onClick={handleInputChange} />{' '}
               Male
         </FormGroup>
-        <FormGroup>    
+        
+        <FormGroup check>    
           <Input 
             type="radio" 
-            id="female" 
+            id="gender"
+            value="female" 
             name="gender"
-            onClick={genderSelect} />{' '}
+            onClick={handleInputChange} />{' '}
           Female
           </FormGroup>
           </Row>
+        <FormGroup>
+          <Input 
+            type="text"
+            id="goals"
+            placeholder="What's your primary fitness goal?"
+            name="goals"
+            onChange={this.lengthCheck}
+            maxLength='30'
+            defaultValue={values.goals}
+            />
+            <p style={{color: 'red'}}>{ this.state.msg }</p>
+        </FormGroup>
           <Button onClick={this.back}>Back</Button> 
           {" "}
           <Button onClick={this.submit}>Submit</Button>

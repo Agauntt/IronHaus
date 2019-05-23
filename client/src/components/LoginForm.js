@@ -1,18 +1,30 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import API from "../Utils/API";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "../Style.css";
 
 class LoginForm extends Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
 
+  // Login function - runs email and pass through passport auth
   handleFormSubmit = event => {
     event.preventDefault();
-    
+    axios.post("/login", {
+      email: this.state.email,
+      password: this.state.password
+    }).then(function(res) {
+      // console.log(res.data._id);
+     // if valid info is passed back, log in user, else redirect to homepage
+      if (res.data.email !== undefined) {
+      
+      document.location.href = `/profile/id=${res.data._id}}`;
+    } else document.location.href = "/";
+  })
   };
 
   // handle any changes to the input fields
@@ -33,17 +45,16 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div style={{ textAlign: "center", marginTop: "35px" }} className="container">
+      <div style={{ textAlign: "center", marginTop: "35px"}} className="container loginFormCSS">
         <form>
           <div className="form-group">
             <input
               style={{ textAlign: "center" }}
               type="email"
               className="form-control"
-              value={this.state.username}
               onChange={this.handleInputChange}
-              id="username"
-              placeholder="Username"
+              id="email"
+              placeholder="email"
             />
           </div>
           <div className="form-group">

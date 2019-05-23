@@ -1,9 +1,10 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/user");
+  // sign in user
+  signIn: function(userData) {
+    // console.log(userData.email)
+    return axios.post("/login", userData);
   },
   // Gets the book with the given id
   getBook: function(id) {
@@ -13,8 +14,8 @@ export default {
   deleteBook: function(id) {
     return axios.delete("/api/user/");
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/user/");
+  // Saves a user to the database
+  saveUser: function(userData) {
+    return axios.post("/api/user", userData);
   }
 };
