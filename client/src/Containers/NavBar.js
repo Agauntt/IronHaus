@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 import '../Style.css';
 import logo from '../IronHausLogo.png';
 
 
  class NavBar extends React.Component {
      render() {
-     const { name } = this.props;
+     const { handleNewWorkout } = this.props;
     return (
         <div>
         <Navbar className="Nav">
@@ -17,10 +18,13 @@ import logo from '../IronHausLogo.png';
             alt="IronHaus"
         />
         </Navbar.Brand>
-        <Navbar.Toggle />
+        <Navbar.Text >
+            
+        </Navbar.Text>
         <Navbar.Collapse className="justify-content-end">
             <Navbar.Text className='new-workout-btn'>
-                <a href='#' style={{textDecoration: 'underline'}}>New Workout</a>
+            <Button variant='outline-dark' onClick={handleNewWorkout}>Record workout</Button> {" "}
+            <a href='/'><Button variant="outline-dark">Log Out</Button></a>
             </Navbar.Text>
         </Navbar.Collapse>
         </Navbar>

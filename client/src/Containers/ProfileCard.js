@@ -19,9 +19,6 @@ class ProfileCard extends React.Component {
             <li>Height: { height }''</li> 
             <li>Age: { age } yrs </li> 
             <li>Fitness Goals: { goals } </li> 
-            <li>Fitness Goals: { goals } </li> 
-            <li>Fitness Goals: { goals } </li> 
-            <li>Fitness Goals: { goals } </li> 
         </Card.Text>
     </Card.Body>
     </Card>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Style.css"
-
-import { Button, Form, FormGroup, Input, FormText } from "reactstrap";
+import { Button, Form, Input } from "reactstrap";
 import { Verify } from "crypto";
 
 

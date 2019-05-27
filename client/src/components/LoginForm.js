@@ -14,7 +14,7 @@ class LoginForm extends Component {
   // Login function - runs email and pass through passport auth
   handleFormSubmit = event => {
     event.preventDefault();
-    axios.post("/login", {
+    axios.post("/users/login", {
       email: this.state.email,
       password: this.state.password
     }).then(function(res) {

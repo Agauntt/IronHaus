@@ -46,13 +46,7 @@ class SignUp extends React.Component {
   };
 
 
-  // For now, this just logs the state for debugging
   submit = () => {
-    // alert('age : ' + this.state.age);
-    // alert('height : ' + this.state.height);
-    // alert('weight : ' + this.state.weight);
-    // alert('gender: ' + this.state.gender);
-    // alert('goals: ' + this.state.goals);
     Axios.post('api/user', {
         name: this.state.name,
         email: this.state.email,
@@ -126,14 +120,6 @@ class SignUp extends React.Component {
               />
           </div>
         );
-      //   case 3:
-      //     return (
-      //       <FormUserCreds
-      //         nextStep={this.nextStep}
-      //         handleInputChange={this.handleInputChange}
-      //         values={values}
-      //       />
-      //     );
     }
   }
 }

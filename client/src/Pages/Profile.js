@@ -1,8 +1,10 @@
+/* eslint-disable default-case */
 import React from "react";
 import Axios from 'axios';
-import NavBar from '../Components/NavBar';
-import ProfileCard from '../Components/ProfileCard';
-import Feed from '../Components/Feed';
+import NavBar from '../Containers/NavBar';
+import ProfileCard from '../Containers/ProfileCard';
+import Feed from '../Containers/Feed';
+import NewWorkout from '../Containers/NewWorkout'
 
 class Profile extends React.Component {
   state = {
@@ -12,7 +14,8 @@ class Profile extends React.Component {
     weight: "",
     age: "",
     gender: "",
-    goals: ""
+    goals: "",
+    step: 1
   }
 
   componentDidMount = () => {
@@ -27,15 +30,15 @@ class Profile extends React.Component {
   }
 
   pullUser = async e => {
-    let res = await Axios.get('/user/' + e)
+    let res = await Axios.get('/users/' + e)
     let { data } = await res;
-    console.log(data.name);
     this.setState({
       name: data.name,
       weight: data.weight,
       height: data.height,
       age: data.age,
-      goals: data.goals
+      goals: data.goals,
+      email: data.email
     })
   }
 
@@ -43,23 +46,68 @@ class Profile extends React.Component {
     console.log(data)
   }
 
+  handleNewWorkout = () => {
+    console.log('test');
+    if(this.state.step === 1){
+      this.setState({
+        step: 2
+      })
+    } else {
+      this.setState({
+        step: 1
+      })
+    }
+  };
+
   render() {
-    return (
-      <div>
-        <NavBar name={ this.state.name }/>
-        <div style={{display: 'flex'}}>
-        <ProfileCard 
-        name= {this.state.name}
-        height= { this.state.height } 
-        weight= { this.state.weight } 
-        age= { this.state.age } 
-        goals= { this.state.goals } 
-        /> 
+    const { step } = this.state;
+    const { email, name} = this.state
+    switch (step) {
+      case 1:
+      return (
+        <div>
+          <NavBar 
+          name={ this.state.name }
+          handleNewWorkout={this.handleNewWorkout}
+          />
+          <div style={{display: 'flex'}}>
+          <ProfileCard 
+          name= {this.state.name}
+          height= { this.state.height } 
+          weight= { this.state.weight } 
+          age= { this.state.age } 
+          goals= { this.state.goals } 
+          /> 
         <Feed />
+     
         </div>
       </div>
     );
+      case 2:
+    return (
+      <div>
+        <NavBar 
+          name={ this.state.name }
+          handleNewWorkout={this.handleNewWorkout}
+          />
+          <div style={{display: 'flex'}}>
+          <ProfileCard 
+          name= {this.state.name}
+          height= { this.state.height } 
+          weight= { this.state.weight } 
+          age= { this.state.age } 
+          goals= { this.state.goals } 
+          /> 
+          <NewWorkout 
+          {...this.state}
+          closePost={this.handleNewWorkout}/>
+
+        </div>
+      </div>
+    );
+      }
+    }
   }
-}
+
 
 export default Profile;

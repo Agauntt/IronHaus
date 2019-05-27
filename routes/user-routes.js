@@ -7,13 +7,20 @@ const passport = require('passport');
 const User = require("../models/User");
 
 // GET route to return user info
-router.get("/user/:id", (req, res) => {
+router.get("/users/:id", (req, res) => {
     User.findById(req.params.id)
         .then(user => res.send(user))
 });
 
+// GET route to return all registered users
+router.get("/users", (req, res) => {
+    User.find()
+        .sort({ date: -1 })
+        .then(user => res.send(user))
+});
+
 // POST route to save a new book to the database
-router.post("/api/user", (req, res) => {
+router.post("/users", (req, res) => {
     const newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -42,7 +49,7 @@ router.post("/api/user", (req, res) => {
 });
 
 // Handle Login
-router.post('/login', (req, res, next) => {
+router.post('/users/login', (req, res, next) => {
     console.log(req);
     passport.authenticate('local', (req, user) => {
         res.json(user);

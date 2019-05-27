@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const routes = require("./routes/api-routes");
+var users = require("./routes/user-routes");
+var workouts = require('./routes/workout-routes')
 const passport = require('passport');
+const socket = require('socket.io');
 
 const app = express();
 
@@ -29,8 +31,15 @@ mongoose
   .catch(err => console.log(err));
 
 // Use Routes
-app.use(routes);
+app.use('/', users);
+app.use('/', workouts);
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
+let server= app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
+
+let io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log("made socket connection");
+})
