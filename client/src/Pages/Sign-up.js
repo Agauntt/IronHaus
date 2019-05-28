@@ -47,14 +47,14 @@ class SignUp extends React.Component {
 
 
   submit = () => {
-    Axios.post('api/user', {
+    console.log('new user: ' + this.state);
+    Axios.post('/users', {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
         height: this.state.height,
         weight: this.state.weight,
         age: this.state.age,
-        gender: this.state.gender,
         goals: this.state.goals
       })
       .then()

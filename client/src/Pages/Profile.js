@@ -9,11 +9,11 @@ import NewWorkout from '../Containers/NewWorkout'
 class Profile extends React.Component {
   state = {
     id: "",
+    email: "",
     name: "",
-    height: "",
-    weight: "",
-    age: "",
-    gender: "",
+    height: "N/A",
+    weight: "N/A",
+    age: "N/A",
     goals: "",
     step: 1
   }
@@ -26,7 +26,6 @@ class Profile extends React.Component {
       id: userID
     });
       this.pullUser(userID)
-      // console.log(userID);
   }
 
   pullUser = async e => {
@@ -42,12 +41,7 @@ class Profile extends React.Component {
     })
   }
 
-  setPage = data => {
-    console.log(data)
-  }
-
   handleNewWorkout = () => {
-    console.log('test');
     if(this.state.step === 1){
       this.setState({
         step: 2
@@ -61,13 +55,11 @@ class Profile extends React.Component {
 
   render() {
     const { step } = this.state;
-    const { email, name} = this.state
     switch (step) {
       case 1:
       return (
         <div>
           <NavBar 
-          name={ this.state.name }
           handleNewWorkout={this.handleNewWorkout}
           />
           <div style={{display: 'flex'}}>
@@ -99,7 +91,8 @@ class Profile extends React.Component {
           goals= { this.state.goals } 
           /> 
           <NewWorkout 
-          {...this.state}
+          name={this.state.name}
+          email={this.state.email}
           closePost={this.handleNewWorkout}/>
 
         </div>

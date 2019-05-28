@@ -17,7 +17,6 @@ const UserSchema = new Schema({
   },
   weight: {
     type: String,
-    required: true  
   },
   height: {
     type: String,
@@ -27,13 +26,8 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  gender: {
-    type: String,
-    required: true
-  },
   goals: {
     type: String,
-    required: true
   }
 
 });

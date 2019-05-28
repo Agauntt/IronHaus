@@ -38,10 +38,10 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "concurrently": "^4.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.5.9",
-    "nodemon": "^1.19.0",
+    "mongoose": "^5.5.11",
+    "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react": "^16.8.6",
@@ -51,6 +51,10 @@
     "react-scripts": "^3.0.1",
     "reactstrap": "^8.0.0",
     "require-dir": "^1.2.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^1.6.0"
   }
 }

@@ -5,39 +5,45 @@ import Axios from 'axios';
 
 class Feed extends Component {
     state = {
-        Posts: []
+        Posts: [],
+        Loading: true
     }
 
     componentDidMount() {
         this.loadPosts();
     }
 
+
+
     loadPosts = () => {
         Axios.get('/workouts')
              .then(res => 
-                this.setState({Posts: res.data}))
+                this.setState({Posts: res.data, Loading: false}))
     }
 
     render() {
+        if (this.state.Loading === false) {
         return (
-            <div className='feed container'>
-                {this.state.Posts.map(workout => {
+            <div className='feed container'> 
+                {
+                    this.state.Posts.map(workout => {
                     return (
                         <Post key={workout._id}
                         values={workout}
                         />
-                        // <div>
-                        // <strong>
-                           
-                        // </strong>
-                        // </div>
                     )
                 })
-
                 }
             </div>
         )
+    } else {
+        return (
+            <div className='feed container'>
+                <h2>LOADING...</h2>
+            </div>
+            )
     }
+}
 }
 
 export default Feed

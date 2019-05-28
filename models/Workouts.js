@@ -31,23 +31,32 @@ const Schema = mongoose.Schema;
 // });
 
 const WorkoutSchema = new Schema ({
-    owner: {
-        type: String,
-        required: true  
-    },
-    owner_name: {
-        type: String,
-        required: true
-    },
-    lift: String,
-    sets: Number,
-    reps: Number,
-    weight: Number,
-    notes: String,
+    owner: String,
+    name: String,
+    lifts: String,
+    sets: [],
     date: {
         type: Date,
         default: Date.now
     }
-})
+});
+    // owner: {
+    //     type: String,
+    //     required: true  
+    // },
+    // owner_name: {
+    //     type: String,
+    //     required: true
+    // },
+    // lift: String,
+    // sets: Number,
+    // reps: Number,
+    // weight: Number,
+    // notes: String,
+    // date: {
+    //     type: Date,
+    //     default: Date.now
+    // }
+
 
 module.exports = Workout = mongoose.model("workout", WorkoutSchema);

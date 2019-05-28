@@ -31,9 +31,9 @@ export class FormPersonalDetails extends Component {
 
   lengthCheck = e => {
     const { values } = this.props 
-    if(values.goals.length > 20) {
+    if(values.goals.length > 60) {
       this.setState({
-        msg: 'Please keep answer under 30 characters'
+        msg: 'Please keep answer under 75 characters'
       })
     } 
     this.props.handleInputChange(e);
@@ -69,27 +69,6 @@ export class FormPersonalDetails extends Component {
             </FormGroup>
           </Col>
         </Row>
-        <Row style={{ justifyContent: "center"}}>
-        <FormGroup check style={{marginRight: "70px"}}>
-          <Input 
-            type="radio" 
-            id="gender"
-            value="male"                 
-            name="gender"
-            onClick={handleInputChange} />{' '}
-              Male
-        </FormGroup>
-        
-        <FormGroup check>    
-          <Input 
-            type="radio" 
-            id="gender"
-            value="female" 
-            name="gender"
-            onClick={handleInputChange} />{' '}
-          Female
-          </FormGroup>
-          </Row>
         <FormGroup>
           <Input 
             type="text"
@@ -97,7 +76,7 @@ export class FormPersonalDetails extends Component {
             placeholder="What's your primary fitness goal?"
             name="goals"
             onChange={this.lengthCheck}
-            maxLength='30'
+            maxLength='75'
             defaultValue={values.goals}
             />
             <p style={{color: 'red'}}>{ this.state.msg }</p>

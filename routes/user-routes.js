@@ -21,6 +21,7 @@ router.get("/users", (req, res) => {
 
 // POST route to save a new book to the database
 router.post("/users", (req, res) => {
+    console.log("hello from api");
     const newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -28,7 +29,6 @@ router.post("/users", (req, res) => {
         height: req.body.height,
         weight: req.body.weight,
         age: req.body.age,
-        gender: req.body.gender,
         goals: req.body.goals
     });
 

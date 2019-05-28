@@ -5,81 +5,90 @@ import axios from 'axios';
 
 class NewWorkout extends Component {
     state = {
-        lift: "",
-        sets: "",
-        reps: "",
-        weight: "",
-        notes: "",
         owner: this.props.email,
-        name: this.props.name
+        name: this.props.name,
+        lifts: "",
+        sets: [{reps: "", weight: ""}]
     }
 
     // handle any changes to the input fields
-  handleInputChange = event => {
-    // Pull the name and value properties off of the event.target (the element which triggered the event)
-    const { id, value } = event.target;
+    handleInputChange = (e) => {
+        let tClass = e.target.className.replace(" form-control", "");
+        if (tClass === "lifts"){
+            this.setState({ [e.target.name]: e.target.value })
+        }
+        else if (tClass === "reps" || "weight") {
+          let sets = [...this.state.sets]   
+          sets[e.target.dataset.id][tClass] = e.target.value
+          this.setState({ sets })
+        } 
+      }
 
-    // Set the state for the appropriate input field
-    this.setState({
-      [id]: value
-    });
-  };
+  addSet = () => {
+      this.setState((prevState) => ({
+          sets: [...prevState.sets, {reps: "", weight: ""}],
+      }));
+  }
 
   submitWorkout = () => {
-    axios.post('/workouts', {
-        lift: this.state.lift,
-        sets: this.state.sets,
-        reps: this.state.reps,
-        weight: this.state.weight,
-        notes: this.state.notes,
-        owner: this.state.owner,
-        owner_name: this.state.name
-    })
+    axios.post('/workouts', 
+        {
+            formData: this.state
+        })
          .then(this.props.closePost)
+  }
+
+  test = () => {
+      console.log("hello")
   }
 
 
     render() {
+        let { sets } = this.state
         return (
             <div>
             <Form className="workout-form">
             <div className='container'>
-            <Form.Group style={{marginTop: '10px'}}>
+            <Form.Group style={{marginTop: '10px', display: 'flex'}}>
                 <Form.Control 
                 onChange={this.handleInputChange} 
-                value={this.state.lift} 
-                id='lift' type="text" 
+                className="lifts"
+                name="lifts"
+                id='lifts' type="text" 
                 placeholder="Name of Lift" />
+                <h1 onClick={this.test} style={{color: 'green', marginLeft: '10px'}}>+</h1>
             </Form.Group>
-            <Form.Group style={{marginTop: '10px', inputFormat}} >
-                <Form.Control 
-                onChange={this.handleInputChange} 
-                value={this.state.sets}  
-                id='sets' type="number" 
-                placeholder="Number of Sets" />
-            </Form.Group>  
-            <Form.Group>
-                <Form.Control 
-                onChange={this.handleInputChange} 
-                value={this.state.reps} 
-                id="reps" type="number" 
-                placeholder="Number of Reps" />
-            </Form.Group>  
-            <Form.Group>
-                <Form.Control 
-                onChange={this.handleInputChange} 
-                value={this.state.weight} 
-                id='weight' type="number" 
-                placeholder="Weight" />
-            </Form.Group>  
-            <Form.Group>
-                <Form.Control 
-                onChange={this.handleInputChange} 
-                value={this.state.notes} 
-                id='notes' as="textarea" 
-                rows="3" placeholder="Notes:" />
-            </Form.Group>
+            {
+                sets.map((val, idx) => {
+                    let repsId = `reps-${idx}`, weightId = `weight-${idx}` 
+                    return(
+                    <div key={idx} className='row'>
+                    <Form.Group className='col-4'>
+                        <Form.Control 
+                        onChange={this.handleInputChange}  
+                        name={repsId}
+                        data-id={idx}
+                        id={repsId} 
+                        className="reps"
+                        type="number" 
+                        placeholder="Reps" />
+                    </Form.Group>  
+                    <Form.Group className='col-4'>
+                        <Form.Control 
+                        onChange={this.handleInputChange} 
+                        name={weightId}
+                        data-id={idx}
+                        id={weightId}
+                        className="weight"
+                        type="number" 
+                        placeholder="Weight" />
+                    </Form.Group>  
+                    <h1 onClick={this.addSet} style={{color: 'green'}}>+</h1>
+                    </div>
+                 )})
+            }
             </div>
+
             <div style={{textAlign: 'center'}}>
             <Button style={{marginBottom: '10px', marginTop: '0px'}} onClick={this.submitWorkout}>Submit</Button>
             <Button style={{marginBottom: '10px', marginTop: '0px', marginLeft: '10px'}} onClick={this.props.closePost}>Cancel</Button>

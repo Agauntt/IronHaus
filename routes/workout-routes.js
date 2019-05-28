@@ -14,15 +14,24 @@ router.get("/workouts", (req, res) => {
 
 // POST route to add a workout
 router.post('/workouts', (req, res) => {
-    console.log('hello from workout log route')
+    let string = req.body.formData;
     const newWorkout = new Workout({
-        owner: req.body.owner,
-        owner_name: req.body.owner_name,
-        lift: req.body.lift,
-        sets: req.body.sets,
-        reps: req.body.reps,
-        weight: req.body.weight,
-        notes: req.body.notes 
+        owner: string.owner,
+        name: string.name,
+        lifts: string.lifts,
+        sets: string.sets
+    });
+        newWorkout.save()
+            .then(console.log(res))
+        });
+    // const newWorkout = new Workout({
+    //     owner: req.body.owner,
+    //     owner_name: req.body.owner_name,
+    //     lift: req.body.lift,
+    //     sets: req.body.sets,
+    //     reps: req.body.reps,
+    //     weight: req.body.weight,
+    //     notes: req.body.notes 
         //     {
         //      name: req.body.name,
         //     }
@@ -39,8 +48,7 @@ router.post('/workouts', (req, res) => {
         //     distance: req.body.distance
         // },
         // private: req.body.private
-    });
-    newWorkout.save().then(workout => res.json(workout));
-})
+    // });
+    // newWorkout.save().then(workout => res.json(workout));
 
 module.exports = router;

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import API from "../Utils/API";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import "../Style.css";
 
