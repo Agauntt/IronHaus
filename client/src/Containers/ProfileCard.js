@@ -7,7 +7,7 @@ class ProfileCard extends React.Component {
     render (){
         const { name, weight, height, age, goals } = this.props;
     return (
-        <div>
+        <div style={{display: 'inline-block'}}>
             <Card className="profile-card" style={{ width: '16rem' }}>
             <div style={{textAlign: 'center'}} >
                 <Image src={ avatar } className="avatar"/>

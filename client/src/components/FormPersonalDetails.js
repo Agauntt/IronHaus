@@ -21,13 +21,13 @@ export class FormPersonalDetails extends Component {
     this.props.submit();
   };
 
-  valueCheck = e => {
-    e.preventDefault();
-   const { values } = this.props;
-    const {id, value} = e.target;
-    let num = parseInt(value);
-    console.log(num);
-}
+//   valueCheck = e => {
+//     e.preventDefault();
+//    const { values } = this.props;
+//     const {id, value} = e.target;
+//     let num = parseInt(value);
+//     console.log(num);
+// }
 
   lengthCheck = e => {
     const { values } = this.props 

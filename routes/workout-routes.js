@@ -6,7 +6,7 @@ const Workout = require("../models/Workouts");
 
 // GET route to return all workouts
 router.get("/workouts", (req, res) => {
-    console.log(req.query)
+    // console.log(req.query)
     Workout.find()
         .sort({ date: -1 })
         .then(workout => res.json(workout))
@@ -22,33 +22,7 @@ router.post('/workouts', (req, res) => {
         sets: string.sets
     });
         newWorkout.save()
-            .then(console.log(res))
+            .then(workout => res.json())
         });
-    // const newWorkout = new Workout({
-    //     owner: req.body.owner,
-    //     owner_name: req.body.owner_name,
-    //     lift: req.body.lift,
-    //     sets: req.body.sets,
-    //     reps: req.body.reps,
-    //     weight: req.body.weight,
-    //     notes: req.body.notes 
-        //     {
-        //      name: req.body.name,
-        //     }
-           
-        //     // sets: [{
-        //     //     reps: req.body.reps,
-        //     //     weight: req.body.weight,
-        //     // }],
-        //     // notes: req.body.notes,
-        // ],
-        // cardio: {
-        //     activity: req.body.activity,
-        //     time: req.body.time,
-        //     distance: req.body.distance
-        // },
-        // private: req.body.private
-    // });
-    // newWorkout.save().then(workout => res.json(workout));
 
 module.exports = router;

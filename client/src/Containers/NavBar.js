@@ -18,13 +18,11 @@ import logo from '../IronHausLogo.png';
             alt="IronHaus"
         />
         </Navbar.Brand>
-        <Navbar.Text >
-            
-        </Navbar.Text>
+        
         <Navbar.Collapse className="justify-content-end">
             <Navbar.Text className='new-workout-btn'>
-            <Button variant='outline-dark' onClick={handleNewWorkout}>Record workout</Button> {" "}
-            <a href='/'><Button variant="outline-dark">Log Out</Button></a>
+            <Button className='NavBtn' variant='outline' onClick={handleNewWorkout}>Record workout</Button> {" "}
+            <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
             </Navbar.Text>
         </Navbar.Collapse>
         </Navbar>

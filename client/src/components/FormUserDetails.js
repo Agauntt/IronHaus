@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../Style.css"
 import { Button, Form, Input } from "reactstrap";
-import { Verify } from "crypto";
-
 
 class FormUserDetails extends Component {
   state = {
@@ -38,7 +36,7 @@ class FormUserDetails extends Component {
   passwordCheck = e => {
     e.preventDefault();
    const { values } = this.props;
-    const {id, value} = e.target;
+    const { value } = e.target;
     this.setState({
       c_password: value
     }, () => {

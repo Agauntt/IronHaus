@@ -38,7 +38,7 @@ router.post("/users", (req, res) => {
             if(err) throw err;
             // Set hased password
             newUser.password = hash;
-            console.log(newUser.password);
+            // console.log(newUser.password);
         // Save user with hashed password
         newUser.save()
                .then(user => {
@@ -50,7 +50,7 @@ router.post("/users", (req, res) => {
 
 // Handle Login
 router.post('/users/login', (req, res, next) => {
-    console.log(req);
+    // console.log(req);
     passport.authenticate('local', (req, user) => {
         res.json(user);
     })(req, res, next);

@@ -8,14 +8,14 @@ class NewWorkout extends Component {
         owner: this.props.email,
         name: this.props.name,
         lifts: "",
-        sets: [{reps: "", weight: ""}]
+        sets: [{reps: "", weight: ""}],
     }
 
     // handle any changes to the input fields
     handleInputChange = (e) => {
         let tClass = e.target.className.replace(" form-control", "");
         if (tClass === "lifts"){
-            this.setState({ [e.target.name]: e.target.value })
+            this.setState({ [e.target.name]: e.target.value.toUpperCase() })
         }
         else if (tClass === "reps" || "weight") {
           let sets = [...this.state.sets]   
@@ -31,15 +31,19 @@ class NewWorkout extends Component {
   }
 
   submitWorkout = () => {
+    if(this.state.lifts === "" || this.state.sets[0].reps === "" || this.state.sets[0].weight === "") {
+        alert("Please fill out all fields");
+        return;
+    }   else {
     axios.post('/workouts', 
         {
             formData: this.state
         })
          .then(this.props.closePost)
-  }
+  }}
 
   test = () => {
-      console.log("hello")
+      console.log(this.state.sets[0].reps)
   }
 
 
@@ -47,23 +51,25 @@ class NewWorkout extends Component {
         let { sets } = this.state
         return (
             <div>
-            <Form className="workout-form">
+            <Form>
+            <div className="workout-form">
             <div className='container'>
-            <Form.Group style={{marginTop: '10px', display: 'flex'}}>
+                <div className='row'>
                 <Form.Control 
+                style={{marginTop: '10px', marginLeft: '5px', display: 'flex', width: '80%'}}
                 onChange={this.handleInputChange} 
                 className="lifts"
                 name="lifts"
                 id='lifts' type="text" 
                 placeholder="Name of Lift" />
-                <h1 onClick={this.test} style={{color: 'green', marginLeft: '10px'}}>+</h1>
-            </Form.Group>
+                <h1 onClick={this.test} style={{display: 'flex', color: 'green', marginLeft: '10px'}}>+</h1>
+                </div>
             {
                 sets.map((val, idx) => {
                     let repsId = `reps-${idx}`, weightId = `weight-${idx}` 
                     return(
                     <div key={idx} className='row'>
-                    <Form.Group className='col-4'>
+                    <div className='col-4'>
                         <Form.Control 
                         onChange={this.handleInputChange}  
                         name={repsId}
@@ -72,8 +78,8 @@ class NewWorkout extends Component {
                         className="reps"
                         type="number" 
                         placeholder="Reps" />
-                    </Form.Group>  
-                    <Form.Group className='col-4'>
+                    </div>  
+                    <div className='col-4'>
                         <Form.Control 
                         onChange={this.handleInputChange} 
                         name={weightId}
@@ -82,11 +88,12 @@ class NewWorkout extends Component {
                         className="weight"
                         type="number" 
                         placeholder="Weight" />
-                    </Form.Group>  
-                    <h1 onClick={this.addSet} style={{color: 'green'}}>+</h1>
+                    </div>  
+                    <h1 onClick={this.addSet} style={{marginLeft: '10px',color: 'green',verticalAlign:'center', display: 'flex'}}>+</h1>
                     </div>
                  )})
             }
+            </div>
             </div>
 
             <div style={{textAlign: 'center'}}>
@@ -97,11 +104,6 @@ class NewWorkout extends Component {
             </div>
         )
     }
-}
-
-const inputFormat = {
-    marginLeft: '15px!important',
-    marginRight: '15px!important'
 }
 
 export default NewWorkout

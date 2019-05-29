@@ -14,7 +14,7 @@ class Profile extends React.Component {
     height: "N/A",
     weight: "N/A",
     age: "N/A",
-    goals: "",
+    goals: "N/A",
     step: 1
   }
 
@@ -62,7 +62,8 @@ class Profile extends React.Component {
           <NavBar 
           handleNewWorkout={this.handleNewWorkout}
           />
-          <div style={{display: 'flex'}}>
+          <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
+          <div className="sm-col-12">
           <ProfileCard 
           name= {this.state.name}
           height= { this.state.height } 
@@ -70,8 +71,8 @@ class Profile extends React.Component {
           age= { this.state.age } 
           goals= { this.state.goals } 
           /> 
+          </div>
         <Feed />
-     
         </div>
       </div>
     );

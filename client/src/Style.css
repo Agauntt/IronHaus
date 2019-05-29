@@ -1,37 +1,96 @@
-.heading {
-  text-align: center;
-  /* background-color: rgb(146, 146, 146); */
-  margin-top: 50px;
-  width: 90%;
-  max-width: 600px;
-  padding-left: 5%;
-  /* margin-left: 25%;
-  margin-right: 25%;*/
-  border-radius: 10px; 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-animation: autofill 0s forwards;
+    animation: autofill 0s forwards;
 }
 
-.form-group {
-  text-align: center;
-  /* margin-left: 20%;
-  margin-right: 20%; */
+@keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
 }
 
-.loginFormCSS {
-  width: 80%!important;
+@-webkit-keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
 }
 
 @media only screen and (min-width: 700px) {
   .loginFormCSS {
     width: 50%!important;
   }
+}
+
+@media only screen and (max-width: 700px) {
+  .body-box {
+    display: block
+  }
+  .profile-card {
+    display: none!important;
+  }
+  .feed {
+    margin-left: 20px!important;
+  }
+
+  }
+
+.heading {
+  text-align: center;
+  margin-top: 50px;
+  width: 90%;
+  max-width: 600px;
+  padding-left: 5%;
+  border-radius: 10px; 
+}
+
+body {
+  background-color: rgb(34, 40, 49);
+  color: white;
+}
+
+.form-control {
+  text-align: center;
+  background-color: rgb(34, 40, 49)!important;
+  color: white!important;
+  border: none;
+  border-bottom: solid;
+  border-color: grey;
+  margin-bottom: 5px;
   
 }
 
+.loginFormCSS {
+  width: 80%!important;
+  border: solid;
+  border-width: 1px;
+  padding: 20px;
+  border-radius: 10px;
+  border-color: rgb(239, 187, 53)
+}
+
+#fncyBtn {
+  background-color: rgb(34, 40, 49)!important;
+  border-bottom: solid!important;
+  border-width: 2px;
+}
+  
+
 .Nav {
-  background-color: gray;
+  background-color: rgb(50, 58, 70);
   width: 100%!important;
   border-bottom: solid;
   border-width: 2px;
+  border-color: rgb(239, 187, 53);
+  color: rgb(239, 187, 53);
+}
+
+.NavBtn {
+  color: rgb(239, 187, 53);
 }
 
 .NavItem {
@@ -41,14 +100,25 @@
 
 .logo {
   width: 200px;
-  margin-left: 15px
+  margin-left: 15px;
+  color: white
+}
+
+.PCard-wrapper{
+  display: inline-block;
+  width: 100%;
 }
 
 .profile-card {
   margin-top: 25px;
-  background-color: rgb(97, 97, 236, .5);
-  border-radius: 15px;
-  margin-left: 20px;
+  background-color: rgb(50, 58, 70);
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(239, 187, 53);
+  border-radius: 5px;
+  margin-left: 50px;
+  color: rgb(192, 191, 191);
+  display: inline-block;
 }
 
 .avatar {
@@ -60,19 +130,37 @@
   align-content: center;
 }
 
+.post {
+  border-bottom: solid;
+  border-width: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-color: rgb(239, 187, 53);
+  color: rgb(192, 192, 192);
+}
+
 .feed {
   border: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 1%;
+  background-color: rgb(50, 58, 70);
+  border-color: rgb(239, 187, 53);
   margin-top: 25px;
-  margin-left: 20px;
-  width: 1000px;
+  margin-left: 50px;
+  margin-right: 20px;
+  max-width: 90vh;
+  display: inline-block;
 }
 
 .workout-form {
   border: solid;
   border-width: 1px;
+  border-color: rgb(239, 187, 53);
   margin: 50px;
-  width: 400px;
+  margin-bottom: 20px;
   border-radius: 2%;
+}
+.workout-form .container .row {
+  justify-content: flex-end!important;
+  margin-right: 5%!important;
 }

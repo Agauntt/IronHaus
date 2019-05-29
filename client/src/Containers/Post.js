@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PostItem from './PostItem';
 
 class Post extends Component {
 
@@ -11,21 +12,25 @@ class Post extends Component {
     render() {
     const { values } = this.props;
         return (
-            <div onClick={this.test} style={{border: 'solid', borderWidth: '2px', marginTop: '5px', marginBottom: '5px'}}>
+            <div onClick={this.test} className="post">
                 <div className='row'>
-                    <div className='col-3'>
+                    <div className='col-md-3 col-sm-4'>
                         <h5 style={{marginLeft: '5px', textDecoration: 'underline'}}>{values.name}</h5>
-                        {/* <br/>
-                        <div style={{display: 'flex'}} className="">
-                        <p style={{marginLeft: '5px', marginTop: 'auto'}}>Props: </p>
-                        <button style={{width: '3rem', marginLeft: '15px', borderRadius: '50%'}}>give props</button>
-                        </div> */}
                     </div>
                     <div className='col-9'>
                         <strong style={{marginLeft: '10px'}}> { values.lifts } </strong>                      
-                        <li style={{marginLeft: '10px'}}>{values.sets[0].reps} {' reps @ '} Weight: {values.sets[0].weight}{' lbs'}</li>
-                        <li style={{marginLeft: '10px'}}></li>
-                        <li style={{marginLeft: '10px'}}>Notes: {values.notes}</li>
+                        {/* <li style={{marginLeft: '10px'}}>{values.sets[0].reps} {' reps @ '} Weight: {values.sets[0].weight}{' lbs'}</li> */}
+                        {
+                            values.sets.map(element => {
+                                console.log("lift: " + values.lifts + " reps: " + element.reps + " @ " + element.weight);
+                                return (
+                                    <PostItem 
+                                    reps={element.reps}
+                                    weight={element.weight}
+                                    />
+                                )
+                            })
+                        }
                     </div>   
                 </div>
             </div>

@@ -13,8 +13,6 @@ class Feed extends Component {
         this.loadPosts();
     }
 
-
-
     loadPosts = () => {
         Axios.get('/workouts')
              .then(res => 
@@ -36,13 +34,13 @@ class Feed extends Component {
                 }
             </div>
         )
-    } else {
-        return (
-            <div className='feed container'>
-                <h2>LOADING...</h2>
-            </div>
-            )
-    }
+        } else {
+            return (
+                <div className='feed container'>
+                    <h2>LOADING...</h2>
+                </div>
+                )
+        }
 }
 }
 
