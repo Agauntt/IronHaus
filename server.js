@@ -25,9 +25,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(passport.initialize());
 app.use(passport.session());
 
+// DB congig
+const db = require('./config/keys').MONGO_URI;
+
 // Connect to mongoose
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/IronHaus", { useNewUrlParser: true })
+  .connect(db || "mongodb://localhost/IronHaus", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected..."))
   .catch(err => console.log(err));
 
