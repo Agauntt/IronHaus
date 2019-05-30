@@ -53,8 +53,8 @@ class Profile extends React.Component {
   };
 
   render() {
-    const { step } = this.state;
-    switch (step) {
+    // const { step } = this.state;
+    // switch (step) {
     //   case 1:
     //   return (
     //     <div>
@@ -98,7 +98,7 @@ class Profile extends React.Component {
     //     </div>
     //   </div>
     // );
-      default:
+      // default:
         return(
           <div>
           {/* <NavBar 
@@ -120,7 +120,7 @@ class Profile extends React.Component {
         )
       }
     }
-  }
+  // }
 
 
 export default Profile;
