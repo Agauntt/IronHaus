@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from 'axios';
-// import NavBar from '../Containers/NavBar';
+import NavBar from '../Containers/NavBar';
 // import ProfileCard from '../Containers/ProfileCard';
 import Feed from '../Containers/Feed';
 // import NewWorkout from '../Containers/NewWorkout'
@@ -101,9 +101,9 @@ class Profile extends React.Component {
       // default:
         return(
           <div>
-          {/* <NavBar 
-          handleNewWorkout={this.handleNewWorkout}
-          /> */}
+          <NavBar 
+          // handleNewWorkout={this.handleNewWorkout}
+          />
           {/* <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
           <div className="sm-col-12">
           <ProfileCard 

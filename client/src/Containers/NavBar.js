@@ -7,7 +7,7 @@ import logo from '../IronHausLogo.png';
 
  class NavBar extends React.Component {
      render() {
-     const { handleNewWorkout } = this.props;
+    //  const { handleNewWorkout } = this.props;
     return (
         <div>
         <Navbar className="Nav">
@@ -21,7 +21,7 @@ import logo from '../IronHausLogo.png';
         
         <Navbar.Collapse className="justify-content-end">
             <Navbar.Text className='new-workout-btn'>
-            <Button className='NavBtn' variant='outline' onClick={handleNewWorkout}>Record workout</Button> {" "}
+            {/* <Button className='NavBtn' variant='outline' onClick={handleNewWorkout}>Record workout</Button> {" "} */}
             <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
             </Navbar.Text>
         </Navbar.Collapse>
