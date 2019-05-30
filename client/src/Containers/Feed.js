@@ -14,7 +14,7 @@ class Feed extends Component {
     }
 
     loadPosts = () => {
-        Axios.get('/workouts')
+        Axios.get('/api/workouts')
              .then(res => 
                 this.setState({Posts: res.data, Loading: false}))
     }

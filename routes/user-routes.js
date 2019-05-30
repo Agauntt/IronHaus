@@ -22,6 +22,7 @@ router.get("/users", (req, res) => {
 // POST route to save a new book to the database
 router.post("/users", (req, res) => {
     console.log("hello from api");
+    console.log(req.body);
     const newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -31,7 +32,7 @@ router.post("/users", (req, res) => {
         age: req.body.age,
         goals: req.body.goals
     });
-
+    console.log(newUser);
     // Hash Password
     bcrypt.genSalt(10, (err, salt) =>
         bcrypt.hash(newUser.password, salt, (err, hash) => {

@@ -35,7 +35,7 @@ class NewWorkout extends Component {
         alert("Please fill out all fields");
         return;
     }   else {
-    axios.post('/workouts', 
+    axios.post('/api/workouts', 
         {
             formData: this.state
         })

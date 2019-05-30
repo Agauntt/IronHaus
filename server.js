@@ -39,8 +39,8 @@ mongoose
   .catch(err => console.log(err));
 
 // Use Routes
-app.use('/', users);
-app.use('/', workouts);
+app.use('/api', users);
+app.use('/api', workouts);
 
 const PORT = process.env.PORT || 3001;
 

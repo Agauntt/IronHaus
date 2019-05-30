@@ -29,7 +29,7 @@ class Profile extends React.Component {
   }
 
   pullUser = async e => {
-    let res = await Axios.get('/users/' + e)
+    let res = await Axios.get('/api/users/' + e)
     let { data } = await res;
     this.setState({
       name: data.name,
