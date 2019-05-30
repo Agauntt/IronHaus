@@ -5,7 +5,7 @@ var users = require("./routes/user-routes");
 var workouts = require('./routes/workout-routes');
 const passport = require('passport');
 const socket = require('socket.io');
-
+const path = require('path');
 
 const app = express();
 
@@ -19,6 +19,10 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 // Passport Middleware
@@ -40,7 +44,8 @@ app.use('/', workouts);
 
 const PORT = process.env.PORT || 3001;
 
-let server= app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
+
+let server= app.listen(PORT, () => console.log(`server connected on port ${PORT} process.env.PORT = ${process.env.PORT}` ));
 
 let io = socket(server);
 
