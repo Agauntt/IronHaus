@@ -1,11 +1,10 @@
-/* eslint-disable default-case */
 import React from "react";
 import logo from "../IronHausLogo.png";
 import "../Style.css";
-
+import Axios from "axios";
 import FormUserDetails from "../Components/FormUserDetails";
 import FormPersonalDetails from "../Components/FormPersonalDetails";
-import Axios from "axios";
+
 
 class SignUp extends React.Component {
   state = {
@@ -120,6 +119,21 @@ class SignUp extends React.Component {
               />
           </div>
         );
+      default: 
+          return (
+            <div>
+            <div style={{textAlign: "center"}}>
+              <img className="heading" style={{ marginLeft: "15px" }} alt="IronHaus" src={logo} />
+            </div>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>First, lets set up your account</h3>
+            <FormUserDetails
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleInputChange={this.handleInputChange}
+              values={values}
+            />
+          </div>
+          )
     }
   }
 }
