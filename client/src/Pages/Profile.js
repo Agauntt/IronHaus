@@ -64,13 +64,13 @@ class Profile extends React.Component {
           /> */}
           <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
           <div className="sm-col-12">
-          {/* <ProfileCard 
+          <ProfileCard 
           name= {this.state.name}
           height= { this.state.height } 
           weight= { this.state.weight } 
           age= { this.state.age } 
           goals= { this.state.goals } 
-          />  */}
+          /> 
           </div>
         <Feed />
         </div>

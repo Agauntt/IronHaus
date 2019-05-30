@@ -5,7 +5,7 @@ import avatar from '../assets/male1.jpg';
 
 class ProfileCard extends React.Component {
     render (){
-        const { name, weight, height, age, goals } = this.props;
+        // const { name, weight, height, age, goals } = this.props;
     return (
         <div style={{display: 'inline-block'}}>
             <Card className="profile-card" style={{ width: '16rem' }}>
@@ -13,13 +13,13 @@ class ProfileCard extends React.Component {
                 <Image src={ avatar } className="avatar"/>
             </div>
   <Card.Body>
-    <Card.Title style={{ textAlign: 'center' }}>{ name }</Card.Title>
+    {/* <Card.Title style={{ textAlign: 'center' }}>{ name }</Card.Title>
         <Card.Text>
             <li>Current weight: { weight } lbs</li> 
             <li>Height: { height }''</li> 
             <li>Age: { age } yrs </li> 
             <li>Fitness Goals: { goals } </li> 
-        </Card.Text>
+        </Card.Text> */}
     </Card.Body>
     </Card>
         </div>
