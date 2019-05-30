@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 // import Button from 'react-bootstrap/Button';
 import '../Style.css';
-// import logo from '../IronHausLogo.png';
+import logo from '../IronHausLogo.png';
 
 
  class NavBar extends React.Component {
@@ -10,8 +10,8 @@ import '../Style.css';
     //  const { handleNewWorkout } = this.props;
     return (
         <div>
-        <Navbar className="Nav">
-        {/* <Navbar.Brand  href="/">
+        {/* <Navbar className="Nav">
+        <Navbar.Brand  href="/">
             <img
             src={ logo }
             className="d-inline-block align-top logo"
@@ -24,8 +24,8 @@ import '../Style.css';
             <Button className='NavBtn' variant='outline' onClick={handleNewWorkout}>Record workout</Button> {" "}
             <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
             </Navbar.Text>
-        </Navbar.Collapse> */}
-        </Navbar>
+        </Navbar.Collapse>
+        </Navbar> */}
       </div>
     )
 }

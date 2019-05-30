@@ -114,7 +114,7 @@ class Profile extends React.Component {
           goals= { this.state.goals } 
           /> 
           </div> */}
-        <Feed />
+        {/* <Feed /> */}
         {/* </div> */}
       </div>
         )
