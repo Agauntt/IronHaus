@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React from "react";
 import Axios from 'axios';
-import NavBar from '../Containers/NavBar';
+// import NavBar from '../Containers/NavBar';
 import ProfileCard from '../Containers/ProfileCard';
 import Feed from '../Containers/Feed';
 import NewWorkout from '../Containers/NewWorkout'
@@ -59,9 +59,9 @@ class Profile extends React.Component {
       case 1:
       return (
         <div>
-          <NavBar 
+          {/* <NavBar 
           handleNewWorkout={this.handleNewWorkout}
-          />
+          /> */}
           <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
           <div className="sm-col-12">
           <ProfileCard 
@@ -79,10 +79,10 @@ class Profile extends React.Component {
       case 2:
     return (
       <div>
-        <NavBar 
+        {/* <NavBar 
           name={ this.state.name }
           handleNewWorkout={this.handleNewWorkout}
-          />
+          /> */}
           <div style={{display: 'flex'}}>
           <ProfileCard 
           name= {this.state.name}
