@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="wrapper" >
-        <Route path="/" exact={true} component={Home} />
+        <Route path="/" exact={true} component={SignUp} />
         <Route path="/profile" exact={false} component={Profile} />
         <Route path="/Sign-up" exact={true} component={SignUp} />
       </div>
