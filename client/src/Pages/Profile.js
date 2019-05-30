@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from 'axios';
 import NavBar from '../Containers/NavBar';
-import ProfileCard from '../Containers/ProfileCard';
+// import ProfileCard from '../Containers/ProfileCard';
 import Feed from '../Containers/Feed';
 // import NewWorkout from '../Containers/NewWorkout'
 
@@ -104,7 +104,7 @@ class Profile extends React.Component {
           <NavBar 
           handleNewWorkout={this.handleNewWorkout}
           />
-          <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
+          {/* <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
           <div className="sm-col-12">
           <ProfileCard 
           name= {this.state.name}
@@ -113,9 +113,9 @@ class Profile extends React.Component {
           age= { this.state.age } 
           goals= { this.state.goals } 
           /> 
-          </div>
+          </div> */}
         <Feed />
-        </div>
+        {/* </div> */}
       </div>
         )
       }
