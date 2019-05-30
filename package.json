@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/Agauntt/IronHaus/issues"
   },
-  "homepage": "https://github.com/Agauntt/IronHaus#readme",
   "dependencies": {
     "@material-ui/core": "^4.0.1",
     "axios": "^0.18.0",
