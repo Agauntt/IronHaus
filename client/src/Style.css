@@ -151,19 +151,19 @@ body {
 }
 
 .card {
-  background-color: rgb(50, 58, 70) !important;
   color: rgb(192, 192, 192) !important;
+  border-color: rgb(239, 187, 53) !important;
+  background-color: rgb(50, 58, 70) !important;
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 .profile-card {
   text-align: left;
   margin-top: 25px;
   width: 25vh;
-  /* background-color: rgb(130, 177, 247) !important; */
-  border: solid;
-  border-width: 1px;
-  border-color: rgb(239, 187, 53);
-  border-radius: 5px;
+
   margin-left: 75px;
   color: rgb(192, 191, 191);
   display: inline-block;
