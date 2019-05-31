@@ -1,17 +1,17 @@
 import React from 'react';
-// import Navbar from 'react-bootstrap/Navbar';
-// import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 
-// import logo from '../IronHausLogo.png';
+import logo from '../IronHausLogo.png';
 
 
  class NavBar extends React.Component {
      render() {
-    //  const { handleNewWorkout } = this.props;
+     const { handleNewWorkout } = this.props;
     return (
         <div>
             <strong>THis is a navbar</strong>
-        {/* <Navbar className="Nav">
+        <Navbar className="Nav">
         <Navbar.Brand  href="/">
             <img
             src={ logo }
@@ -26,7 +26,7 @@ import React from 'react';
             <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
             </Navbar.Text>
         </Navbar.Collapse>
-        </Navbar> */}
+        </Navbar>
       </div>
     )
 }
