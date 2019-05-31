@@ -82,7 +82,14 @@ class Profile extends React.Component {
         return (
           <div>
             <NavBar name={this.state.name} handleNewWorkout={this.handleNewWorkout} />
-            <div style={{}}>
+            <div
+              className="row body-box"
+              style={{
+                textAlign: "center",
+                display: "flex",
+                marginRight: "0px"
+              }}
+            >
               <ProfileCard
                 name={this.state.name}
                 height={this.state.height}
@@ -90,7 +97,6 @@ class Profile extends React.Component {
                 age={this.state.age}
                 goals={this.state.goals}
               />
-              {/* <br /> */}
               <NewWorkout
                 name={this.state.name}
                 email={this.state.email}
@@ -103,18 +109,23 @@ class Profile extends React.Component {
         return (
           <div>
             <NavBar handleNewWorkout={this.handleNewWorkout} />
-            <div className="row body-box" style={{ textAlign: "center", display: "flex" }}>
-              <div className="sm-col-12">
-                <ProfileCard
-                  name={this.state.name}
-                  height={this.state.height}
-                  weight={this.state.weight}
-                  age={this.state.age}
-                  goals={this.state.goals}
-                />
-              </div>
-              <Feed />
+            <div
+              className="row body-box"
+              style={{
+                textAlign: "center",
+                display: "flex",
+                marginRight: "0px"
+              }}
+            >
+              <ProfileCard
+                name={this.state.name}
+                height={this.state.height}
+                weight={this.state.weight}
+                age={this.state.age}
+                goals={this.state.goals}
+              />
             </div>
+            <Feed />
           </div>
         );
     }

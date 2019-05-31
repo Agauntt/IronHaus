@@ -32,13 +32,13 @@ class NavBar extends React.Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#a">
+              <a className="nav-link" href="#a" onClick={handleNewWorkout}>
                 Record a workout
               </a>
             </li>
           </ul>
         </div>
-        {/* <button className="NavBtn" variant="outline" onClick={handleNewWorkout}>
+        {/* <button className="NavBtn" variant="outline" >
           Record workout
         </button>{" "}
         <a href="/">
