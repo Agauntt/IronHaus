@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "../IronHausLogo.png";
+import logo from "../IronHausLogoWhite.png";
 import "../Style.css";
 import Axios from "axios";
 import FormUserDetails from "../Components/FormUserDetails";
 import FormPersonalDetails from "../Components/FormPersonalDetails";
-
 
 class SignUp extends React.Component {
   state = {
@@ -44,35 +43,24 @@ class SignUp extends React.Component {
     });
   };
 
-
   submit = () => {
-    console.log('new user: ' + this.state);
-    Axios.post('/api/users', {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-        height: this.state.height,
-        weight: this.state.weight,
-        age: this.state.age,
-        goals: this.state.goals
-      })
+    console.log("new user: " + this.state);
+    Axios.post("/api/users", {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      height: this.state.height,
+      weight: this.state.weight,
+      age: this.state.age,
+      goals: this.state.goals
+    })
       .then()
-      .catch(err => console.log(err));  
-  }
+      .catch(err => console.log(err));
+  };
 
   render() {
     const { step } = this.state;
-    const {
-      name,
-      password,
-      email,
-      height,
-      weight,
-      age,
-      gender,
-      profile,
-      goals
-    } = this.state;
+    const { name, password, email, height, weight, age, gender, profile, goals } = this.state;
     const values = {
       name,
       password,
@@ -89,43 +77,48 @@ class SignUp extends React.Component {
       case 1:
         return (
           <div>
-            <div style={{textAlign: "center"}}>
+            <div style={{ textAlign: "center" }}>
               <img className="heading" style={{ marginLeft: "15px" }} alt="IronHaus" src={logo} />
             </div>
-            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>First, lets set up your account</h3>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>
+              First, lets set up your account
+            </h3>
             <FormUserDetails
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               handleInputChange={this.handleInputChange}
               values={values}
-              
             />
           </div>
         );
       case 2:
         return (
           <div>
-            <div style={{textAlign: "center"}}>
+            <div style={{ textAlign: "center" }}>
               <img className="heading" style={{ marginLeft: "10px" }} alt="IronHaus" src={logo} />
             </div>
-            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>Now Tell us a little about yourself</h3>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>
+              Now Tell us a little about yourself
+            </h3>
             <FormPersonalDetails
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               handleInputChange={this.handleInputChange}
-              values={values} 
+              values={values}
               genderSelect={this.genderSelect}
-              submit = {this.submit}
-              />
+              submit={this.submit}
+            />
           </div>
         );
-      default: 
-          return (
-            <div>
-            <div style={{textAlign: "center"}}>
+      default:
+        return (
+          <div>
+            <div style={{ textAlign: "center" }}>
               <img className="heading" style={{ marginLeft: "15px" }} alt="IronHaus" src={logo} />
             </div>
-            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>First, lets set up your account</h3>
+            <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>
+              First, lets set up your account
+            </h3>
             <FormUserDetails
               nextStep={this.nextStep}
               prevStep={this.prevStep}
@@ -133,7 +126,7 @@ class SignUp extends React.Component {
               values={values}
             />
           </div>
-          )
+        );
     }
   }
 }
