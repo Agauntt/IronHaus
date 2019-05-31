@@ -2,45 +2,44 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-animation: autofill 0s forwards;
-    animation: autofill 0s forwards;
+  -webkit-animation: autofill 0s forwards;
+  animation: autofill 0s forwards;
 }
 
 @keyframes autofill {
-    100% {
-        background: transparent;
-        color: inherit;
-    }
+  100% {
+    background: transparent;
+    color: inherit;
+  }
 }
 
 @-webkit-keyframes autofill {
-    100% {
-        background: transparent;
-        color: inherit;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-  .loginFormCSS {
-    width: 50%!important;
+  100% {
+    background: transparent;
+    color: inherit;
   }
 }
+
+/* @media only screen and (min-width: 700px) {
+  .loginFormCSS {
+    width: 100% !important;
+  }
+} */
 
 @media only screen and (max-width: 700px) {
   .body-box {
-    display: block
+    display: block;
   }
   .profile-card {
-    display: none!important;
+    display: none !important;
   }
   .feed {
-    margin-left: 20px!important;
+    margin-left: 20px !important;
   }
-  /* .loginFormCSS {
-    max-width: 90%!important;
-  } */
-
+  .loginFormCSS {
+    width: 70vw !important;
   }
+}
 
 .avatar {
   width: 80%;
@@ -57,7 +56,7 @@ input:-webkit-autofill:active {
   width: 90%;
   max-width: 600px;
   padding-left: 5%;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 body {
@@ -67,34 +66,32 @@ body {
 
 .form-control {
   text-align: center;
-  background-color: rgb(34, 40, 49)!important;
-  color: white!important;
+  background-color: rgb(34, 40, 49) !important;
+  color: white !important;
   border: none;
   border-bottom: solid;
   border-color: grey;
   margin-bottom: 5px;
-  
 }
 
 .loginFormCSS {
-  width: 70%!important;
+  width: 40vw;
   border: solid;
   border-width: 1px;
   padding: 20px;
   border-radius: 10px;
-  border-color: rgb(239, 187, 53)
+  border-color: rgb(239, 187, 53);
 }
 
 #fncyBtn {
-  background-color: rgb(34, 40, 49)!important;
-  border-bottom: solid!important;
+  background-color: rgb(34, 40, 49) !important;
+  border-bottom: solid !important;
   border-width: 2px;
 }
-  
 
 .Nav {
   background-color: rgb(50, 58, 70);
-  width: 100%!important;
+  width: 100% !important;
   border-bottom: solid;
   border-width: 2px;
   border-color: rgb(239, 187, 53);
@@ -113,10 +110,10 @@ body {
 .logo {
   width: 200px;
   margin-left: 15px;
-  color: white
+  color: white;
 }
 
-.PCard-wrapper{
+.PCard-wrapper {
   display: inline-block;
   width: 100%;
 }
@@ -128,7 +125,7 @@ body {
   border-width: 1px;
   border-color: rgb(239, 187, 53);
   border-radius: 5px;
-  margin-left: 50px;
+  margin-left: 75px;
   color: rgb(192, 191, 191);
   display: inline-block;
 }
@@ -151,7 +148,7 @@ body {
   margin-top: 25px;
   margin-left: 50px;
   margin-right: 20px;
-  max-width: 90vh;
+  width: 1000px !important;
   display: inline-block;
 }
 
@@ -164,6 +161,6 @@ body {
   border-radius: 2%;
 }
 .workout-form .container .row {
-  justify-content: flex-end!important;
-  margin-right: 5%!important;
+  justify-content: flex-end !important;
+  margin-right: 5% !important;
 }

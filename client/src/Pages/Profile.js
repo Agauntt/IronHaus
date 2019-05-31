@@ -1,9 +1,9 @@
 import React from "react";
 import Axios from 'axios';
 import NavBar from '../Containers/NavBar';
-// import ProfileCard from '../Containers/ProfileCard';
-// import Feed from '../Containers/Feed';
-// import NewWorkout from '../Containers/NewWorkout'
+import ProfileCard from '../Containers/ProfileCard';
+import Feed from '../Containers/Feed';
+import NewWorkout from '../Containers/NewWorkout'
 
 class Profile extends React.Component {
   state = {
@@ -53,58 +53,15 @@ class Profile extends React.Component {
   };
 
   render() {
-    // const { step } = this.state;
-    // switch (step) {
-    //   case 1:
-    //   return (
-    //     <div>
-    //       <NavBar 
-    //       handleNewWorkout={this.handleNewWorkout}
-    //       />
-    //       <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
-    //       <div className="sm-col-12">
-    //       <ProfileCard 
-    //       name= {this.state.name}
-    //       height= { this.state.height } 
-    //       weight= { this.state.weight } 
-    //       age= { this.state.age } 
-    //       goals= { this.state.goals } 
-    //       /> 
-    //       </div>
-    //     <Feed />
-    //     </div>
-    //   </div>
-    // );
-    //   case 2:
-    // return (
-    //   <div>
-    //     <NavBar 
-    //       name={ this.state.name }
-    //       handleNewWorkout={this.handleNewWorkout}
-    //       />
-    //       <div style={{display: 'flex'}}>
-    //       <ProfileCard 
-    //       name= {this.state.name}
-    //       height= { this.state.height } 
-    //       weight= { this.state.weight } 
-    //       age= { this.state.age } 
-    //       goals= { this.state.goals } 
-    //       /> 
-    //       <NewWorkout 
-    //       name={this.state.name}
-    //       email={this.state.email}
-    //       closePost={this.handleNewWorkout}/>
-
-    //     </div>
-    //   </div>
-    // );
-      // default:
-        return(
-          <div>
+    const { step } = this.state;
+    switch (step) {
+      case 1:
+      return (
+        <div>
           <NavBar 
-          // handleNewWorkout={this.handleNewWorkout}
+          handleNewWorkout={this.handleNewWorkout}
           />
-          {/* <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
+          <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
           <div className="sm-col-12">
           <ProfileCard 
           name= {this.state.name}
@@ -113,14 +70,57 @@ class Profile extends React.Component {
           age= { this.state.age } 
           goals= { this.state.goals } 
           /> 
-          </div> */}
-        {/* <Feed /> */}
-        {/* </div> */}
+          </div>
+        <Feed />
+        </div>
+      </div>
+    );
+      case 2:
+    return (
+      <div>
+        <NavBar 
+          name={ this.state.name }
+          handleNewWorkout={this.handleNewWorkout}
+          />
+          <div style={{display: 'flex'}}>
+          <ProfileCard 
+          name= {this.state.name}
+          height= { this.state.height } 
+          weight= { this.state.weight } 
+          age= { this.state.age } 
+          goals= { this.state.goals } 
+          /> 
+          <NewWorkout 
+          name={this.state.name}
+          email={this.state.email}
+          closePost={this.handleNewWorkout}/>
+
+        </div>
+      </div>
+    );
+      default:
+        return(
+          <div>
+          <NavBar 
+          handleNewWorkout={this.handleNewWorkout}
+          />
+          <div className="row body-box" style={{textAlign: 'center', display: 'flex'}}>
+          <div className="sm-col-12">
+          <ProfileCard 
+          name= {this.state.name}
+          height= { this.state.height } 
+          weight= { this.state.weight } 
+          age= { this.state.age } 
+          goals= { this.state.goals } 
+          /> 
+          </div> 
+        <Feed />
+         </div>
       </div>
         )
       }
     }
-  // }
+  }
 
 
 export default Profile;
