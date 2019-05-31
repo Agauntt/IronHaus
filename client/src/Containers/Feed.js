@@ -1,47 +1,39 @@
-import React, { Component } from 'react';
-import '../Style.css';
-import Post from './Post';
-import Axios from 'axios';
+import React, { Component } from "react";
+import "../Style.css";
+import Post from "./Post";
+import Axios from "axios";
 
 class Feed extends Component {
-    state = {
-        Posts: [],
-        Loading: true
-    }
+  state = {
+    Posts: [],
+    Loading: true
+  };
 
-    componentDidMount() {
-        this.loadPosts();
-    }
+  componentDidMount() {
+    this.loadPosts();
+  }
 
-    loadPosts = () => {
-        Axios.get('/api/workouts')
-             .then(res => 
-                this.setState({Posts: res.data, Loading: false}))
-    }
+  loadPosts = () => {
+    Axios.get("/api/workouts").then(res => this.setState({ Posts: res.data, Loading: false }));
+  };
 
-    render() {
-        if (this.state.Loading === false) {
-        return (
-            <div className='feed container'> 
-                {
-                    this.state.Posts.map(workout => {
-                    return (
-                        <Post key={workout._id}
-                        values={workout}
-                        />
-                    )
-                })
-                }
-            </div>
-        )
-        } else {
-            return (
-                <div className='feed container'>
-                    <h2>LOADING...</h2>
-                </div>
-                )
-        }
-}
+  render() {
+    if (this.state.Loading === false) {
+      return (
+        <div className="feed container flex-row flex-wrap">
+          {this.state.Posts.map(workout => {
+            return <Post key={workout._id} values={workout} />;
+          })}
+        </div>
+      );
+    } else {
+      return (
+        <div className="feed container">
+          <h2>LOADING...</h2>
+        </div>
+      );
+    }
+  }
 }
 
-export default Feed
+export default Feed;

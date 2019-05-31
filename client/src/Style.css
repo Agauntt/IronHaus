@@ -25,7 +25,7 @@ input:-webkit-autofill:active {
     width: 100% !important;
   }
 } */
-
+/* 
 @media only screen and (max-width: 700px) {
   .body-box {
     display: block;
@@ -46,9 +46,9 @@ input:-webkit-autofill:active {
   .body-box {
     justify-content: center;
   }
-}
+} */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
   .body-box {
     display: block;
   }
@@ -118,12 +118,16 @@ body {
 }
 
 .loginFormCSS {
-  width: 40vw;
+  width: 70vw;
   border: solid;
   border-width: 1px;
   padding: 20px;
   border-radius: 10px;
   border-color: rgb(239, 187, 53);
+}
+
+.form-control:focus {
+  box-shadow: none;
 }
 
 #fncyBtn {
@@ -218,7 +222,7 @@ body {
   margin-top: 25px;
   margin-left: 50px;
   margin-right: 20px;
-  width: 1000px;
+  /* width: 1000px; */
   display: inline-block;
 }
 

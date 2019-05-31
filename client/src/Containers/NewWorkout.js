@@ -62,7 +62,6 @@ class NewWorkout extends Component {
                   className="form-control lifts"
                   style={{ marginTop: "10px", marginLeft: "5px", display: "flex", width: "80%" }}
                   onChange={this.handleInputChange}
-                  //   className="lifts"
                   name="lifts"
                   id="lifts"
                   type="text"
@@ -87,7 +86,6 @@ class NewWorkout extends Component {
                         name={repsId}
                         data-id={idx}
                         id={repsId}
-                        // className="reps"
                         type="number"
                         placeholder="Reps"
                       />
@@ -99,7 +97,6 @@ class NewWorkout extends Component {
                         name={weightId}
                         data-id={idx}
                         id={weightId}
-                        // className="weight"
                         type="number"
                         placeholder="Weight"
                       />
