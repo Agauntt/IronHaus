@@ -1,15 +1,23 @@
 import React, { Component } from "react";
-import "../Style.css"
+import "../Style.css";
 import { Button, Form, Input } from "reactstrap";
 
 class FormUserDetails extends Component {
   state = {
     c_password: "",
-    msg: "Passwords must match to continue"
-  }
+    msg: "Passwords must match to continue",
+    error: true
+  };
 
   continue = e => {
+    const { values } = this.props;
     e.preventDefault();
+    if (values.name === "" || values.email === "" || values.password === "") {
+      this.setState({
+        msg: "Please fill out all fields to continue"
+      });
+      return;
+    }
     this.props.nextStep();
   };
 
@@ -20,8 +28,8 @@ class FormUserDetails extends Component {
 
   toLogin = e => {
     e.preventDefault();
-    document.location.href = "/"
-  }
+    document.location.href = "/";
+  };
 
   InputChange = event => {
     // Pull the name and value properties off of the event.target (the element which triggered the event)
@@ -35,36 +43,40 @@ class FormUserDetails extends Component {
 
   passwordCheck = e => {
     e.preventDefault();
-   const { values } = this.props;
+    const { values } = this.props;
     const { value } = e.target;
-    this.setState({
-      c_password: value
-    }, () => {
-    // console.log(this.state.c_password);
-    if (values.password === this.state.c_password) {
-      this.setState({
-        msg: ""
-      })
-      this.disableBtn(false);
-    } else {
-      this.setState({
-        msg: "passwords do not match"
-      })
-      this.disableBtn(true);
-    }
-  })
-}
-
-  disableBtn = (e) => {
-      if (e === true) {
-        return false;
-      } else {
-        return true;
+    this.setState(
+      {
+        c_password: value
+      },
+      () => {
+        // console.log(this.state.c_password);
+        if (values.password === this.state.c_password) {
+          this.setState({
+            msg: "",
+            error: false
+          });
+          this.disableBtn(false);
+        } else {
+          this.setState({
+            msg: "passwords do not match"
+          });
+          this.disableBtn(true);
+        }
       }
+    );
+  };
+
+  disableBtn = e => {
+    if (e === true) {
+      return false;
+    } else {
+      return true;
     }
+  };
 
   render() {
-    const { values, handleInputChange} = this.props;
+    const { values, handleInputChange } = this.props;
     return (
       <div className="container text-center loginFormCSS">
         <Form style={{ textAlign: "center" }}>
@@ -76,7 +88,7 @@ class FormUserDetails extends Component {
             id="name"
             placeholder="Full Name"
             onChange={handleInputChange}
-            defaultValue = {values.name}
+            defaultValue={values.name}
           />
           <br />
           <Input
@@ -86,7 +98,7 @@ class FormUserDetails extends Component {
             id="email"
             placeholder="email (this will serve as your username)"
             onChange={handleInputChange}
-            defaultValue = {values.email}
+            defaultValue={values.email}
           />
           <br />
           <Input
@@ -96,7 +108,7 @@ class FormUserDetails extends Component {
             id="password"
             placeholder="Password"
             onChange={this.InputChange}
-            defaultValue = {values.password}
+            defaultValue={values.password}
           />
           <br />
           <Input
@@ -108,9 +120,12 @@ class FormUserDetails extends Component {
             placeholder="confirm password"
             onChange={this.passwordCheck}
           />
-          <div style={{color: "red"}}>{this.state.msg}</div>
+          <strong style={{ color: "gold" }}>{this.state.msg}</strong>
           <br />
-          <Button onClick={this.toLogin}>Back to login</Button> <Button disabled={this.state.msg} onClick={this.continue}>Next</Button>
+          <Button onClick={this.toLogin}>Back to login</Button>{" "}
+          <Button disabled={this.state.error} onClick={this.continue}>
+            Next
+          </Button>
         </Form>
       </div>
     );

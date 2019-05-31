@@ -6,23 +6,27 @@ import "../Style.css";
 class LoginForm extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    msg: ""
   };
 
   // Login function - runs email and pass through passport auth
   handleFormSubmit = event => {
+    var self = this.state.msg;
     event.preventDefault();
-    axios.post("/api/users/login", {
-      email: this.state.email,
-      password: this.state.password
-    }).then(function(res) {
-      // console.log(res.data._id);
-     // if valid info is passed back, log in user, else redirect to homepage
-      if (res.data.email !== undefined) {
-      
-      document.location.href = `/profile/id=${res.data._id}}`;
-    } else document.location.href = "/";
-  })
+    axios
+      .post("/api/users/login", {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => {
+        // if valid info is passed back, log in user, else redirect to homepage
+        if (res.data.email !== undefined) {
+          document.location.href = `/profile/id=${res.data._id}}`;
+        } else {
+          this.setState({ msg: "Incorrect email or password" });
+        }
+      });
   };
 
   // handle any changes to the input fields
@@ -43,7 +47,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div style={{ textAlign: "center", marginTop: "35px"}} className="container loginFormCSS">
+      <div style={{ textAlign: "center", marginTop: "35px" }} className="container loginFormCSS">
         <form>
           <div className="form-group">
             <input
@@ -75,6 +79,8 @@ class LoginForm extends Component {
             Sign-up
           </button>
         </form>
+        <br />
+        <strong style={{ color: "gold" }}>{this.state.msg}</strong>
       </div>
     );
   }

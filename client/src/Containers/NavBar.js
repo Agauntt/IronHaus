@@ -19,7 +19,10 @@ class NavBar extends React.Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span style={{ color: "rgb(192, 192, 192)" }} class="navbar-toggler-icon">
+          <span
+            style={{ fontSize: "2rem", color: "rgb(192, 192, 192)" }}
+            class="navbar-toggler-icon"
+          >
             {" "}
             {icons.menu}
           </span>

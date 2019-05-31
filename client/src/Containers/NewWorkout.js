@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Style.css";
-import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 class NewWorkout extends Component {
@@ -119,15 +118,15 @@ class NewWorkout extends Component {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <Button style={{ marginBottom: "10px", marginTop: "0px" }} onClick={this.submitWorkout}>
+            <button style={{ marginBottom: "10px", marginTop: "0px" }} onClick={this.submitWorkout}>
               Submit
-            </Button>
-            <Button
+            </button>
+            <button
               style={{ marginBottom: "10px", marginTop: "0px", marginLeft: "10px" }}
               onClick={this.props.closePost}
             >
               Cancel
-            </Button>
+            </button>
           </div>
         </form>
       </div>
