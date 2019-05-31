@@ -43,6 +43,9 @@ input:-webkit-autofill:active {
   .loginFormCSS {
     width: 70vw !important;
   }
+  .body-box {
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -50,8 +53,9 @@ input:-webkit-autofill:active {
     display: block;
   }
   .profile-card {
-    margin-left: 1% !important;
-    width: 98vw !important;
+    margin-left: 6vw !important;
+    margin-right: 2vw !important;
+    width: 94vw !important;
   }
   .profile-card .card-body {
     float: right;
@@ -69,9 +73,9 @@ input:-webkit-autofill:active {
     padding: 10px !important;
   }
   .feed {
-    margin-left: 1vw !important;
-    margin-right: 1% !important;
-    width: 99vw !important;
+    margin-left: 6vw !important;
+    margin-right: 2vw !important;
+    width: 94vw !important;
   }
 }
 
@@ -129,6 +133,15 @@ body {
   border-width: 2px;
   border-color: rgb(239, 187, 53);
   color: rgb(239, 187, 53);
+}
+
+.Nav .navbar-expand-lg {
+  padding: 5px;
+  width: 100vw !important;
+}
+
+#navbarTogglerDemo02 {
+  width: 98vw !important;
 }
 
 .NavBtn {

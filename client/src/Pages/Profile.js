@@ -60,8 +60,12 @@ class Profile extends React.Component {
           <div>
             <NavBar handleNewWorkout={this.handleNewWorkout} />
             <div
-              className="row"
-              style={{ textAlign: "center", display: "flex", width: "100vw", margin: "0" }}
+              className="row body-box"
+              style={{
+                textAlign: "center",
+                display: "flex",
+                marginRight: "0px"
+              }}
             >
               <ProfileCard
                 name={this.state.name}
