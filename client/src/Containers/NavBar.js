@@ -1,17 +1,17 @@
 import React from "react";
-
+import icons from "glyphicons";
 import logo from "../IronHausLogoWhite.png";
 
 class NavBar extends React.Component {
   render() {
     const { handleNewWorkout } = this.props;
     return (
-      <div className="Nav navbar-expand-lg">
+      <div className="Nav row navbar-expand-lg">
         <div className="navbar-brand">
           <img src={logo} style={{ marginTop: "10px" }} className="logo" alt="IronHaus" />
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler ml-auto"
           type="button"
           data-toggle="collapse"
           data-target="#navbarTogglerDemo02"
@@ -19,23 +19,21 @@ class NavBar extends React.Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span style={{ color: "white" }} class="navbar-toggler-icon" />
+          <span style={{ color: "rgb(192, 192, 192)" }} class="navbar-toggler-icon">
+            {" "}
+            {icons.menu}
+          </span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#a">
-                Home <span class="sr-only">(current)</span>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Log out
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#a">
-                Link
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#a">
-                Disabled
+            <li className="nav-item">
+              <a className="nav-link" href="#a">
+                Record a workout
               </a>
             </li>
           </ul>

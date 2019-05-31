@@ -77,6 +77,12 @@ input:-webkit-autofill:active {
     margin-right: 2vw !important;
     width: 94vw !important;
   }
+  .navbar-expand-lg .navbar-toggler {
+    margin-left: 20%;
+  }
+  .navbar-collapse {
+    text-align: right !important;
+  }
 }
 
 .avatar {
@@ -128,10 +134,23 @@ body {
 
 .Nav {
   background-color: rgb(50, 58, 70);
-  width: 100vw !important;
   border-bottom: solid;
+  padding: 3vw;
   border-width: 2px;
+  margin-right: 0px !important;
   border-color: rgb(239, 187, 53);
+  color: rgb(239, 187, 53);
+}
+
+.nav-link {
+  text-align: right !important;
+  justify-content: right;
+  font-size: 1.5rem;
+  color: rgb(192, 192, 192);
+  padding: 3px;
+}
+
+.nav-link:hover {
   color: rgb(239, 187, 53);
 }
 
@@ -156,7 +175,6 @@ body {
 .logo {
   width: 200px;
   margin-left: 15px;
-  color: white;
 }
 
 .profile-card .card-body {

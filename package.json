@@ -41,6 +41,7 @@
     "bootstrap": "^4.3.1",
     "concurrently": "^4.1.0",
     "express": "^4.17.1",
+    "glyphicons": "^0.2.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.11",
     "nodemon": "^1.19.1",
