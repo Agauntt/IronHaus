@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-
 import logo from '../IronHausLogo.png';
 
 
@@ -10,7 +9,6 @@ import logo from '../IronHausLogo.png';
      const { handleNewWorkout } = this.props;
     return (
         <div>
-            <strong>THis is a navbar</strong>
         <Navbar className="Nav">
         <Navbar.Brand  href="/">
             <img
