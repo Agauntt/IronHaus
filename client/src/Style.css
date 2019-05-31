@@ -50,8 +50,8 @@ input:-webkit-autofill:active {
     display: block;
   }
   .profile-card {
-    margin-left: 5% !important;
-    width: 100vw !important;
+    margin-left: 1% !important;
+    width: 98vw !important;
   }
   .profile-card .card-body {
     float: right;
@@ -59,12 +59,19 @@ input:-webkit-autofill:active {
   .avatar {
     width: 125px !important;
     height: 125px !important;
+    text-align: center;
   }
   .card-block {
     width: 60% !important;
   }
   .card-header {
     width: 40% !important;
+    padding: 10px !important;
+  }
+  .feed {
+    margin-left: 1vw !important;
+    margin-right: 1% !important;
+    width: 99vw !important;
   }
 }
 
@@ -117,7 +124,7 @@ body {
 
 .Nav {
   background-color: rgb(50, 58, 70);
-  width: 105vw !important;
+  width: 100vw !important;
   border-bottom: solid;
   border-width: 2px;
   border-color: rgb(239, 187, 53);
@@ -180,7 +187,7 @@ body {
   margin-top: 25px;
   margin-left: 50px;
   margin-right: 20px;
-  width: 1000px !important;
+  width: 1000px;
   display: inline-block;
 }
 

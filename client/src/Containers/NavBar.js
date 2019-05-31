@@ -7,12 +7,12 @@ class NavBar extends React.Component {
     const { handleNewWorkout } = this.props;
     return (
       <div className="Nav">
-        <img src={logo} className="d-inline-block logo" alt="IronHaus" />
+        <img src={logo} style={{ marginTop: "10px" }} className="logo" alt="IronHaus" />
         <button className="NavBtn" variant="outline" onClick={handleNewWorkout}>
           Record workout
         </button>{" "}
         <a href="/">
-          <button className="NavBtn" variant="outline">
+          <button className="NavBtn " variant="outline">
             Log Out
           </button>
         </a>

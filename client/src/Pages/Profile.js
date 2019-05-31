@@ -59,7 +59,7 @@ class Profile extends React.Component {
         return (
           <div>
             <NavBar handleNewWorkout={this.handleNewWorkout} />
-            <div className="row body-box" style={{ textAlign: "center", display: "flex" }}>
+            <div className="row" style={{ textAlign: "center", display: "flex", width: "100vw" }}>
               <ProfileCard
                 name={this.state.name}
                 height={this.state.height}
