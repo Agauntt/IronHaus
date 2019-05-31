@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import logo from '../IronHausLogo.png';
+// import Navbar from 'react-bootstrap/Navbar';
+// import Button from 'react-bootstrap/Button';
+// import logo from '../IronHausLogo.png';
 
 
  class NavBar extends React.Component {
@@ -9,7 +9,7 @@ import logo from '../IronHausLogo.png';
      const { handleNewWorkout } = this.props;
     return (
         <div>
-        <Navbar className="Nav">
+        {/* <Navbar className="Nav">
         <Navbar.Brand  href="/">
             <img
             src={ logo }
@@ -24,7 +24,10 @@ import logo from '../IronHausLogo.png';
             <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
             </Navbar.Text>
         </Navbar.Collapse>
-        </Navbar>
+        </Navbar> */}
+        <div className="Nav">
+            <p> methinks react-bootstrap is gonna have to go</p>
+        </div>
       </div>
     )
 }
