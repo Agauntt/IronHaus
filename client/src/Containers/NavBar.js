@@ -1,35 +1,23 @@
-import React from 'react';
-// import Navbar from 'react-bootstrap/Navbar';
-// import Button from 'react-bootstrap/Button';
-// import logo from '../IronHausLogo.png';
+import React from "react";
 
+import logo from "../IronHausLogoWhite.png";
 
- class NavBar extends React.Component {
-     render() {
-     const { handleNewWorkout } = this.props;
+class NavBar extends React.Component {
+  render() {
+    const { handleNewWorkout } = this.props;
     return (
-        <div>
-        {/* <Navbar className="Nav">
-        <Navbar.Brand  href="/">
-            <img
-            src={ logo }
-            className="d-inline-block align-top logo"
-            alt="IronHaus"
-        />
-        </Navbar.Brand>
-        
-        <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text className='new-workout-btn'>
-            <Button className='NavBtn' variant='outline' onClick={handleNewWorkout}>Record workout</Button> {" "}
-            <a href='/'><Button className='NavBtn' variant="outline">Log Out</Button></a>
-            </Navbar.Text>
-        </Navbar.Collapse>
-        </Navbar> */}
-        <div className="Nav">
-            <p> methinks react-bootstrap is gonna have to go</p>
-        </div>
+      <div className="Nav">
+        <img src={logo} className="d-inline-block logo" alt="IronHaus" />
+        <button className="NavBtn" variant="outline" onClick={handleNewWorkout}>
+          Record workout
+        </button>{" "}
+        <a href="/">
+          <button className="NavBtn" variant="outline">
+            Log Out
+          </button>
+        </a>
       </div>
-    )
+    );
+  }
 }
- }
 export default NavBar;

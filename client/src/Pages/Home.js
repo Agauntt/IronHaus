@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "../IronHausLogo.png";
+import logo from "../IronHausLogoWhite.png";
 import LoginForm from "../Components/LoginForm";
 
 class Home extends React.Component {
   render() {
     return (
-      <div style={{textAlign: "center"}}>
+      <div style={{ textAlign: "center" }}>
         <div>
           <img className="heading" style={{ marginLeft: "10px" }} alt="IronHaus" src={logo} />
         </div>
