@@ -10,6 +10,7 @@ import React from 'react';
     //  const { handleNewWorkout } = this.props;
     return (
         <div>
+            <strong>THis is a navbar</strong>
         {/* <Navbar className="Nav">
         <Navbar.Brand  href="/">
             <img
