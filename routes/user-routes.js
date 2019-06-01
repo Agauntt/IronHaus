@@ -11,6 +11,11 @@ router.get("/users/:id", (req, res) => {
   User.findById(req.params.id).then(user => res.send(user));
 });
 
+// GET route to return user info for modal
+router.get("/users/snoop/:id", (req, res) => {
+  User.findOne(req.params.email).then(user => res.send(user));
+});
+
 // GET route to return all registered users
 router.get("/users", (req, res) => {
   User.find()

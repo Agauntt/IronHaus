@@ -66,12 +66,6 @@ class NewWorkout extends Component {
                   type="text"
                   placeholder="Name of Lift"
                 />
-                {/* <h1
-                  onClick={this.test}
-                  style={{ display: "flex", color: "green", marginLeft: "10px" }}
-                >
-                  +
-                </h1> */}
               </div>
               {sets.map((val, idx) => {
                 let repsId = `reps-${idx}`,

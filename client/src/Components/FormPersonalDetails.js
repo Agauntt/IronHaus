@@ -14,7 +14,7 @@ export class FormPersonalDetails extends Component {
 
   submit = () => {
     const { values } = this.props;
-    if (values.heigh == "" || values.weight == "" || values.age == "" || values.goals == "") {
+    if (values.heigh === "" || values.weight === "" || values.age === "" || values.goals === "") {
       this.setState({
         msg: "Please fill out all fields to submit"
       });
@@ -38,14 +38,6 @@ export class FormPersonalDetails extends Component {
       })
       .then((document.location.href = "/"));
   };
-
-  //   valueCheck = e => {
-  //     e.preventDefault();
-  //    const { values } = this.props;
-  //     const {id, value} = e.target;
-  //     let num = parseInt(value);
-  //     console.log(num);
-  // }
 
   lengthCheck = e => {
     const { values } = this.props;

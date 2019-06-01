@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../IronHausLogoWhite.png";
 import "../Style.css";
-import Axios from "axios";
 import FormUserDetails from "../Components/FormUserDetails";
 import FormPersonalDetails from "../Components/FormPersonalDetails";
 

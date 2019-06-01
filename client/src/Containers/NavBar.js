@@ -21,7 +21,7 @@ class NavBar extends React.Component {
         >
           <span
             style={{ fontSize: "2rem", color: "rgb(192, 192, 192)" }}
-            class="navbar-toggler-icon"
+            className="navbar-toggler-icon"
           >
             {" "}
             {icons.menu}
@@ -41,14 +41,6 @@ class NavBar extends React.Component {
             </li>
           </ul>
         </div>
-        {/* <button className="NavBtn" variant="outline" >
-          Record workout
-        </button>{" "}
-        <a href="/">
-          <button className="NavBtn " variant="outline">
-            Log Out
-          </button>
-        </a> */}
       </div>
     );
   }
