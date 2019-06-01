@@ -16,7 +16,8 @@ class SignUp extends React.Component {
     age: "",
     gender: "",
     profile: "",
-    goals: ""
+    goals: "",
+    errors: ""
   };
 
   nextStep = () => {
@@ -41,21 +42,6 @@ class SignUp extends React.Component {
     this.setState({
       [id]: value
     });
-  };
-
-  submit = () => {
-    console.log("new user: " + this.state);
-    Axios.post("/api/users", {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      height: this.state.height,
-      weight: this.state.weight,
-      age: this.state.age,
-      goals: this.state.goals
-    })
-      .then()
-      .catch(err => console.log(err));
   };
 
   render() {
@@ -93,12 +79,12 @@ class SignUp extends React.Component {
         );
       case 2:
         return (
-          <div>
+          <div style={{ height: "105vh" }}>
             <div style={{ textAlign: "center" }}>
               <img className="heading" style={{ marginLeft: "10px" }} alt="IronHaus" src={logo} />
             </div>
             <h3 style={{ textAlign: "center", fontSize: "30px", marginTop: "15px" }}>
-              Now Tell us a little about yourself
+              Now tell us a little about yourself
             </h3>
             <FormPersonalDetails
               nextStep={this.nextStep}
@@ -106,7 +92,6 @@ class SignUp extends React.Component {
               handleInputChange={this.handleInputChange}
               values={values}
               genderSelect={this.genderSelect}
-              submit={this.submit}
             />
           </div>
         );

@@ -40,9 +40,7 @@ input:-webkit-autofill:active {
   .feed {
     margin-left: 20px !important;
   }
-  .loginFormCSS {
-    width: 70vw !important;
-  }
+
   .body-box {
     justify-content: center;
   }
@@ -83,6 +81,9 @@ input:-webkit-autofill:active {
   .navbar-collapse {
     text-align: right !important;
   }
+  .loginFormCSS {
+    width: 70vw !important;
+  }
 }
 
 .avatar {
@@ -118,7 +119,7 @@ body {
 }
 
 .loginFormCSS {
-  width: 70vw;
+  width: 50vw;
   border: solid;
   border-width: 1px;
   padding: 20px;

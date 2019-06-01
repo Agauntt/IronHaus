@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Col, Form, FormGroup, Input, Row } from "reactstrap";
+import Axios from "axios";
 
 export class FormPersonalDetails extends Component {
   state = {
@@ -19,8 +20,23 @@ export class FormPersonalDetails extends Component {
       });
       return;
     }
-    document.location.href = "/";
-    this.props.submit();
+
+    console.log("new user: " + values);
+    Axios.post("/api/users", {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      height: values.height,
+      weight: values.weight,
+      age: values.age,
+      goals: values.goals
+    })
+      .catch(err => {
+        if (err) {
+          console.log(err);
+        }
+      })
+      .then((document.location.href = "/"));
   };
 
   //   valueCheck = e => {
@@ -95,10 +111,10 @@ export class FormPersonalDetails extends Component {
               maxLength="75"
               defaultValue={values.goals}
             />
-            <strong style={{ color: "gold" }}>{this.state.msg}</strong>
+            <strong style={{ color: "gold" }}>{values.msg}</strong>
           </FormGroup>
           <Button onClick={this.back}>Back</Button>{" "}
-          <Button disabled={this.state.msg} onClick={this.submit}>
+          <Button disabled={values.msg} onClick={this.submit}>
             Submit
           </Button>
         </Form>

@@ -80,7 +80,6 @@ class FormUserDetails extends Component {
     return (
       <div className="container text-center loginFormCSS">
         <Form style={{ textAlign: "center" }}>
-          <br />
           <Input
             style={{ textAlign: "center" }}
             type="text"
@@ -96,7 +95,7 @@ class FormUserDetails extends Component {
             type="email"
             name="email"
             id="email"
-            placeholder="email (this will serve as your username)"
+            placeholder="email"
             onChange={handleInputChange}
             defaultValue={values.email}
           />
