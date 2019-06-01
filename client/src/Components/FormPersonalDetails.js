@@ -95,12 +95,13 @@ export class FormPersonalDetails extends Component {
           </Row>
           <FormGroup>
             <Input
-              type="text"
+              type="textarea"
               id="goals"
               placeholder="What's your primary fitness goal?"
               name="goals"
               onChange={this.lengthCheck}
               maxLength="75"
+              rows="3"
               defaultValue={values.goals}
             />
             <strong style={{ color: "gold" }}>{values.msg}</strong>

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "../Style.css";
 import axios from "axios";
+import { Input } from "reactstrap";
 
 class NewWorkout extends Component {
   state = {
     owner: this.props.email,
     name: this.props.name,
     lifts: "",
-    sets: [{ reps: "", weight: "" }]
+    sets: [{ reps: "", weight: "" }],
+    msg: ""
   };
 
   // handle any changes to the input fields
@@ -28,13 +30,16 @@ class NewWorkout extends Component {
     }));
   };
 
-  submitWorkout = () => {
+  submitWorkout = e => {
+    e.preventDefault();
     if (
       this.state.lifts === "" ||
       this.state.sets[0].reps === "" ||
       this.state.sets[0].weight === ""
     ) {
-      alert("Please fill out all fields");
+      this.setState({
+        msg: "Please fill out all fields"
+      });
       return;
     } else {
       axios
@@ -56,9 +61,10 @@ class NewWorkout extends Component {
         <form>
           <div className="workout-form">
             <div className="container">
+              <strong style={{ textAlign: "center", color: "gold" }}>{this.state.msg}</strong>
               <div className="row">
-                <input
-                  className="form-control lifts"
+                <Input
+                  className="lifts"
                   style={{ marginTop: "10px", marginLeft: "5px", display: "flex", width: "80%" }}
                   onChange={this.handleInputChange}
                   name="lifts"
@@ -73,8 +79,8 @@ class NewWorkout extends Component {
                 return (
                   <div key={idx} className="row">
                     <div className="col-4">
-                      <input
-                        className="form-control reps"
+                      <Input
+                        className="reps"
                         onChange={this.handleInputChange}
                         name={repsId}
                         data-id={idx}
@@ -84,8 +90,8 @@ class NewWorkout extends Component {
                       />
                     </div>
                     <div className="col-4">
-                      <input
-                        className="form-control weight"
+                      <Input
+                        className="weight"
                         onChange={this.handleInputChange}
                         name={weightId}
                         data-id={idx}

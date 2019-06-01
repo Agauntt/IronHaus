@@ -127,6 +127,23 @@ body {
   border-color: rgb(239, 187, 53);
 }
 
+.profile-modal {
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(239, 187, 53);
+  background-color: rgb(50, 58, 70) !important;
+  color: rgb(192, 192, 192) !important;
+}
+
+.profile-modal-inner {
+  background-color: rgb(50, 58, 70) !important;
+  color: rgb(192, 192, 192) !important;
+}
+
+.Modal span {
+  color: white !important;
+}
+
 .form-control:focus {
   box-shadow: none;
 }

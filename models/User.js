@@ -9,14 +9,15 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
     required: true
   },
   weight: {
-    type: String,
+    type: String
   },
   height: {
     type: String,
@@ -27,9 +28,8 @@ const UserSchema = new Schema({
     required: true
   },
   goals: {
-    type: String,
+    type: String
   }
-
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

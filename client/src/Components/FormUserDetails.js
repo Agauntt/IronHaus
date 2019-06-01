@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Style.css";
 import { Button, Form, Input } from "reactstrap";
+import axios from "axios";
 
 class FormUserDetails extends Component {
   state = {
@@ -18,7 +19,17 @@ class FormUserDetails extends Component {
       });
       return;
     }
-    this.props.nextStep();
+    let q = values.email;
+    axios.get("/api/users/snoop/" + q).then(res => {
+      // console.log("the returned result is: " + res.data);
+      if (res.data === "no user") {
+        this.props.nextStep();
+      } else {
+        this.setState({
+          msg: "Email is already registered"
+        });
+      }
+    });
   };
 
   back = e => {
@@ -120,6 +131,7 @@ class FormUserDetails extends Component {
             onChange={this.passwordCheck}
           />
           <strong style={{ color: "gold" }}>{this.state.msg}</strong>
+          <br />
           <br />
           <Button onClick={this.toLogin}>Back to login</Button>{" "}
           <Button disabled={this.state.error} onClick={this.continue}>

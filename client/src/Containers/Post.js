@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PostItem from "./PostItem";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from "axios";
+import icons from "glyphicons";
 
 class Post extends Component {
   state = {
@@ -13,9 +14,10 @@ class Post extends Component {
     const { values } = this.props;
     e.preventDefault();
     e = values.owner;
-    console.log(e);
+    // console.log(e);
     let res = await axios.get("/api/users/snoop/" + e);
     let { data } = await res;
+    // console.log(data);
     this.setState({
       goals: data.goals
     });
@@ -23,9 +25,9 @@ class Post extends Component {
   };
 
   toggle = () => {
-    const { values } = this.props;
-    console.log("poke " + values.name);
-    console.log(values);
+    // const { values } = this.props;
+    // console.log("poke " + values.name);
+    // console.log(values);
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
@@ -42,24 +44,23 @@ class Post extends Component {
           <div className="col-9">
             <strong style={{ marginLeft: "10px" }}> {values.lifts} </strong>
             {values.sets.map(element => {
-              // console.log(
-              //   "lift: " + values.lifts + " reps: " + element.reps + " @ " + element.weight
-              // );
               return <PostItem reps={element.reps} weight={element.weight} />;
             })}
             <Modal
-              style={{ color: "black" }}
+              style={{ color: "black", marginTop: "20vh" }}
               isOpen={this.state.modal}
               toggle={this.toggle}
-              className={this.props.className}
+              className="profile-modal"
             >
-              <ModalHeader toggle={this.toggle}>{values.name}</ModalHeader>
-              <ModalBody style={{ color: "black" }}>{this.state.goals}</ModalBody>
-              <ModalFooter>
+              <ModalHeader className="profile-modal-inner" toggle={this.toggle}>
+                {values.name}
+              </ModalHeader>
+              <ModalBody className="profile-modal-inner">{this.state.goals}</ModalBody>
+              <ModalFooter className="profile-modal-inner">
                 <Button color="primary" onClick={this.toggle}>
-                  Do Something
+                  {icons.handVictory} coming soon
                 </Button>{" "}
-                <Button color="secondary" onClick={this.toggle}>
+                <Button style={{ color: "white" }} onClick={this.toggle}>
                   Cancel
                 </Button>
               </ModalFooter>

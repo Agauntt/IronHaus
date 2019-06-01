@@ -13,7 +13,15 @@ router.get("/users/:id", (req, res) => {
 
 // GET route to return user info for modal
 router.get("/users/snoop/:id", (req, res) => {
-  User.findOne(req.params.email).then(user => res.send(user));
+  console.log(req.params.id);
+  User.findOne({ email: req.params.id }).then(user => {
+    if (user === null) {
+      res.send("no user");
+    } else {
+      console.log(user);
+      res.send(user);
+    }
+  });
 });
 
 // GET route to return all registered users
