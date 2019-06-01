@@ -215,8 +215,7 @@ body {
 .profile-card {
   text-align: left;
   margin-top: 25px;
-  width: 25vh;
-
+  margin-bottom: 20px!important;
   margin-left: 75px;
   color: rgb(192, 191, 191);
   display: inline-block;
