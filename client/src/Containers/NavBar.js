@@ -8,7 +8,7 @@ class NavBar extends React.Component {
     return (
       <div className="Nav row navbar-expand-lg">
         <div className="navbar-brand">
-          <img src={logo} style={{ marginTop: "10px" }} className="logo" alt="IronHaus" />
+          <img src={logo} style={{ marginTop: "10px", marginLeft: '30px' }} className="logo" alt="IronHaus" />
         </div>
         <button
           className="navbar-toggler ml-auto"

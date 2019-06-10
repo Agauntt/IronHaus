@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../Style.css";
 import Post from "./Post";
 import Axios from "axios";
+import Search from "../Components/Search";
 
 class Feed extends Component {
   state = {
@@ -16,6 +17,10 @@ class Feed extends Component {
   loadPosts = () => {
     Axios.get("/api/workouts").then(res => this.setState({ Posts: res.data, Loading: false }));
   };
+
+  searchPosts = () => {
+
+  }
 
   render() {
     if (this.state.Loading === false) {

@@ -20,32 +20,6 @@ input:-webkit-autofill:active {
   }
 }
 
-/* @media only screen and (min-width: 700px) {
-  .loginFormCSS {
-    width: 100% !important;
-  }
-} */
-/* 
-@media only screen and (max-width: 700px) {
-  .body-box {
-    display: block;
-  }
-  .profile-card {
-    margin-left: 15vw !important;
-    width: 70vw !important;
-  }
-  .profile-card .card-body {
-    float: right;
-  }
-  .feed {
-    margin-left: 20px !important;
-  }
-
-  .body-box {
-    justify-content: center;
-  }
-} */
-
 @media only screen and (max-width: 1000px) {
   .body-box {
     display: block;
@@ -71,9 +45,9 @@ input:-webkit-autofill:active {
     padding: 10px !important;
   }
   .feed {
-    margin-left: 6vw !important;
-    margin-right: 2vw !important;
-    width: 94vw !important;
+    margin-left: 6.5vw !important;
+    margin-right: 3vw !important;
+    width: 100vw !important;
   }
   .navbar-expand-lg .navbar-toggler {
     margin-left: 20%;
@@ -129,6 +103,7 @@ body {
 
 .profile-modal {
   border: solid;
+  border-radius: 5px;
   border-width: 1px;
   border-color: rgb(239, 187, 53);
   background-color: rgb(50, 58, 70) !important;
@@ -140,9 +115,10 @@ body {
   color: rgb(192, 192, 192) !important;
 }
 
-.Modal span {
+/* .Modal span {
+  font-size: 200px!important;
   color: white !important;
-}
+} */
 
 .form-control:focus {
   box-shadow: none;
@@ -239,7 +215,7 @@ body {
   margin-top: 25px;
   margin-left: 50px;
   margin-right: 20px;
-  /* width: 1000px; */
+  width: 100vw;
   display: inline-block;
 }
 

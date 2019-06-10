@@ -25,9 +25,6 @@ class Post extends Component {
   };
 
   toggle = () => {
-    // const { values } = this.props;
-    // console.log("poke " + values.name);
-    // console.log(values);
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
@@ -36,16 +33,19 @@ class Post extends Component {
   render() {
     const { values } = this.props;
     return (
-      <div onClick={this.pullInfo} className="post">
-        <div className="row">
-          <div className="col-md-3 col-sm-4">
-            <h5 style={{ marginLeft: "5px", textDecoration: "underline" }}>{values.name}</h5>
+      <div style={{marginTop:'10px'}}>
+        <div className="card flex-row flex-wrap">
+          <div className="card-header">
+            <h4 className="card-title">{values.name}</h4>            
           </div>
-          <div className="col-9">
-            <strong style={{ marginLeft: "10px" }}> {values.lifts} </strong>
+          <div className="card-block px-2">
+            <div className="card-text w-90">
             {values.sets.map(element => {
               return <PostItem reps={element.reps} weight={element.weight} />;
             })}
+            </div>
+          </div>
+        </div>
             <Modal
               style={{ color: "black", marginTop: "20vh" }}
               isOpen={this.state.modal}
@@ -65,9 +65,9 @@ class Post extends Component {
                 </Button>
               </ModalFooter>
             </Modal>
-          </div>
-        </div>
-      </div>
+           </div>
+    //     </div>
+    //   </div>
     );
   }
 }

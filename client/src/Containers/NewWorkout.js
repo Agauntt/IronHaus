@@ -65,6 +65,7 @@ class NewWorkout extends Component {
               <div className="row">
                 <Input
                   className="lifts"
+                  maxLength="25"
                   style={{ marginTop: "10px", marginLeft: "5px", display: "flex", width: "80%" }}
                   onChange={this.handleInputChange}
                   name="lifts"
@@ -81,6 +82,7 @@ class NewWorkout extends Component {
                     <div className="col-4">
                       <Input
                         className="reps"
+                        maxLength="5"
                         onChange={this.handleInputChange}
                         name={repsId}
                         data-id={idx}
@@ -92,6 +94,7 @@ class NewWorkout extends Component {
                     <div className="col-4">
                       <Input
                         className="weight"
+                        maxLength="5"
                         onChange={this.handleInputChange}
                         name={weightId}
                         data-id={idx}
