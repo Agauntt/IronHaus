@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../IronHausLogoWhite.png";
+import logo from "../assets/IronHausLogoWhite.png";
 import "../Style.css";
 import FormUserDetails from "../Components/FormUserDetails";
 import FormPersonalDetails from "../Components/FormPersonalDetails";

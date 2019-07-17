@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../Style.css";
 import axios from "axios";
-import { Input } from "reactstrap";
+import { Input, Button } from "reactstrap";
 
 class NewWorkout extends Component {
   state = {
@@ -14,9 +14,13 @@ class NewWorkout extends Component {
 
   // handle any changes to the input fields
   handleInputChange = e => {
+    // Trims 'form-control' out of the target's className
     let tClass = e.target.className.replace(" form-control", "");
+    // If the classname of the target is "lifts", sets the lift state to the target value
     if (tClass === "lifts") {
       this.setState({ [e.target.name]: e.target.value.toUpperCase() });
+    // If the className of the target is not lifts, sets the respective set's weight or rep value based on the targets
+    // dataset ID, className, and value
     } else if (tClass === "reps" || "weight") {
       let sets = [...this.state.sets];
       sets[e.target.dataset.id][tClass] = e.target.value;
@@ -30,23 +34,33 @@ class NewWorkout extends Component {
     }));
   };
 
+  removeSet = e => {
+    var id = (e.target.id);
+    var p = this.state.sets;
+    p.splice(id, 1)
+    this.setState({ sets: p })
+  }
+
   submitWorkout = e => {
     e.preventDefault();
-    if (
-      this.state.lifts === "" ||
-      this.state.sets[0].reps === "" ||
-      this.state.sets[0].weight === ""
-    ) {
-      this.setState({
-        msg: "Please fill out all fields"
-      });
-      return;
-    } else {
-      axios
-        .post("/api/workouts", {
-          formData: this.state
-        })
-        .then(this.props.closePost);
+    for(var i = 0; i < this.state.sets.length; i++) {
+      if (
+        this.state.lifts === "" ||
+        this.state.sets[i].reps === "" ||
+        this.state.sets[i].weight === ""
+      ) {
+        this.setState({
+          msg: "Please fill out all fields"
+        });
+        return;
+      };
+      if (i = this.state.sets.length) {
+        axios
+          .post("/api/workouts", {
+            formData: this.state
+          })
+          .then(this.props.closePost);
+      }
     }
   };
 
@@ -57,7 +71,7 @@ class NewWorkout extends Component {
   render() {
     let { sets } = this.state;
     return (
-      <div>
+      <div className='workout-form-container'>
         <form>
           <div className="workout-form">
             <div className="container">
@@ -114,6 +128,18 @@ class NewWorkout extends Component {
                     >
                       +
                     </h1>
+                    <h1
+                      onClick={this.removeSet}
+                      id={idx}
+                      style={{
+                        marginLeft: "10px",
+                        color: "red",
+                        verticalAlign: "center",
+                        display: "flex"
+                      }}
+                    >
+                      -
+                    </h1>
                   </div>
                 );
               })}
@@ -121,15 +147,19 @@ class NewWorkout extends Component {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button style={{ marginBottom: "10px", marginTop: "0px" }} onClick={this.submitWorkout}>
+            <Button 
+              className='btn'
+              style={{ marginBottom: "10px", marginTop: "0px" }} 
+              onClick={this.submitWorkout}>
               Submit
-            </button>
-            <button
+            </Button>
+            <Button
+              className=''
               style={{ marginBottom: "10px", marginTop: "0px", marginLeft: "10px" }}
               onClick={this.props.closePost}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </form>
       </div>

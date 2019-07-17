@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../IronHausLogoWhite.png";
+import logo from "../assets/IronHausLogoWhite.png";
 import LoginForm from "../Components/LoginForm";
 
 class Home extends React.Component {

@@ -1,6 +1,6 @@
 import React from "react";
 import icons from "glyphicons";
-import logo from "../IronHausLogoWhite.png";
+import logo from "../assets/IronHausLogoWhite.png";
 
 class NavBar extends React.Component {
   render() {
@@ -30,13 +30,13 @@ class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Log out
+              <a className="nav-link" href="#a" onClick={handleNewWorkout}>
+                Record a Workout
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#a" onClick={handleNewWorkout}>
-                Record a workout
+              <a className="nav-link" href="/">
+                Log out
               </a>
             </li>
           </ul>

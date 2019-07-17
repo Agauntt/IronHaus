@@ -90,14 +90,15 @@ class Profile extends React.Component {
                 marginRight: "0px"
               }}
             >
-              <ProfileCard
+              {/* <ProfileCard
                 name={this.state.name}
                 height={this.state.height}
                 weight={this.state.weight}
                 age={this.state.age}
                 goals={this.state.goals}
-              />
+              /> */}
               <NewWorkout
+                className='workout-form-container'
                 name={this.state.name}
                 email={this.state.email}
                 closePost={this.handleNewWorkout}

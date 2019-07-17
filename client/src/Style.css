@@ -23,6 +23,8 @@ input:-webkit-autofill:active {
 @media only screen and (max-width: 1000px) {
   .body-box {
     display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
   .profile-card {
     margin-left: 6vw !important;
@@ -227,6 +229,12 @@ body {
   margin-bottom: 20px;
   border-radius: 2%;
 }
+
+.workout-form-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .workout-form .container .row {
   justify-content: flex-end !important;
   margin-right: 5% !important;
